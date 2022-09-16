@@ -1,0 +1,28 @@
+.btn{
+    color: #ffffff;
+    background-color: #eb6969;
+    padding: 8px 50px;
+    border-radius: 30px;
+    --bs-btn-hover-color: var(--bs-btn-hover-border-color);
+    --bs-btn-hover-bg: #ffffff;
+    --bs-btn-hover-border-color: #eb6969;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.form-control{
+    border-radius: 8px;
+    padding: 8px;
+}
+.p-3{
+    color: #ffffff00;
+    background-color: #ffffff00;
+}
+
+.body{
+    -webkit-tap-highlight-color: transparent;
+    background-image: image("/assets/images/background.png");
+}
+
+.text-black{
+    font-size: 18px;
+}
