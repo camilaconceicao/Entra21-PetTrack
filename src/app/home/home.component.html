@@ -9,7 +9,7 @@
             <h1 class="display-2 fw-bold lh-1 mb-3">Pet Track, <br> rede de busca <br> de animais</h1>
             <p class="lead">Pets amam incondicionalmente, você só precisa ajudá-los a achar seu lar.</p>
             <div class="text-end-reverse">
-                <button type="button" class="btn btn-bd-primary">Faça Parte!</button>
+                <a routerLink="cadastro"><button class="btn btn-bd-primary" type="button">Faça Parte!</button></a>
             </div>
         </div>
     </div>
@@ -19,43 +19,44 @@
 <div class="container col-xxl-8 px-4 py-5">
     <div class="px-4 py-5 my-5 text-center">
         <h1 class="display-5 fw-bold">Nossos Serviços</h1>
-        <div class="row g-4 py-5 row-cols-1 row-cols-lg-2">
+        
+        <div class="row g-5 py-5 row-cols-1 row-cols-lg-2">
             <div class="col d-flex align-items-start">
-            <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-                <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
+                <div class="icon-square text-bg-white d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                    <img src="/assets/images/ap icon.png" width="99.82px" height="119.7px" alt="">
+                </div>
+                <div>
+                    <h3 class="fs-2">Adota Pet</h3>
+                    <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+                    <a href="#" class="btn btnamarelo">
+                    Saiba mais
+                    </a>
+                </div>
             </div>
-            <div>
-                <h3 class="fs-2">Adota Pet</h3>
-                <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                <a href="#" class="btn btn-white">
-                Primary button
-                </a>
-            </div>
-            </div>
-            <div class="col d-flex align-items-start">
-            <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-                <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"></use></svg>
-            </div>
-            <div>
-                <h3 class="fs-2">Busca Pet</h3>
-                <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                <a href="#" class="btn btn-primary">
-                Primary button
-                </a>
-            </div>
-            </div>
-            <div class="col d-flex align-items-start">
-            <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-                <svg class="bi" width="1em" height="1em"><use xlink:href="#tools"></use></svg>
-            </div>
-            <div>
-                <h3 class="fs-2">Pet Care</h3>
-                <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-            </div>
+            <div class="col d-flex align-items-left">
+                <div class="icon-square text-bg-white d-inline-flex align-items-left justify-content-center fs-4 flex-shrink-0 me-3">
+                    <img src="/assets/images/bp icon.png" width="121px" height="121px" alt="">
+                </div>
+                <div>
+                    <h3 class="fs-2">Busca Pet</h3>
+                    <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+                    <a href="#" class="btn">
+                    Saiba mais
+                    </a>
+                </div>
             </div>
             <div class="col d-flex align-items-start">
-                <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-                    <svg class="bi" width="1em" height="1em"><use xlink:href="#tools"></use></svg>
+                <div class="icon-square text-bg-white d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                    <img src="/assets/images/pc icon.png" width="101.84px" height="110.63px" alt="">
+                </div>
+                <div>
+                    <h3 class="fs-2">Pet Care</h3>
+                    <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div class="icon-square text-bg-white d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                    <img src="/assets/images/ongs icon.png" width="108.9px" height="102.02px" alt="">
                 </div>
                 <div>
                     <h3 class="fs-2">ONG's</h3>
@@ -89,8 +90,8 @@
   
 <!-- Pareceiros -->
 <div class="row flex-lg-row align-items-left g-5 py-5">
-    <div class="col-10 col-sm-6 col-lg-2">
-        <img src="assets/images/cat.png" class="d-block mx-lg-auto img-fluid" alt="Gato" width="400" height="600">
+    <div class="col-10 col-sm-6 col-lg-2 gatinho">
+        <img src="assets/images/cat.png" id="gatolateral" class="d-block mx-lg-fixed img-fluid" alt="Gato" width="400" height="600">
     </div>
     <div class="col-lg-8">
         <div class="px-4 py-5 my-5 text-center">

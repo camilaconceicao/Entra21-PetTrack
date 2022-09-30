@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { AdotaPetComponent } from './adota-pet/adota-pet.component';
 import { ComunidadeComponent } from './comunidade/comunidade.component';
+import { PopUpComponent } from './pop-up/pop-up.component';
 
 //Definir as rotas:
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
     {path:'adota-pet', component:AdotaPetComponent},
     {path:'login', component:LoginComponent},
     {path:'cadastro', component:CadastroComponent},
-    {path: 'comunidade', component:ComunidadeComponent}  //nome da pasta que criou, indiferente aspas simples ou duplas
+    {path: 'comunidade', component:ComunidadeComponent},
+    {path: 'pop-up', component:PopUpComponent}  //nome da pasta que criou, indiferente aspas simples ou duplas
   ];
 
 @NgModule({

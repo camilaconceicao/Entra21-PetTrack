@@ -11,20 +11,26 @@
             <div class="modal-header p-5 pb-4 py-1 border-bottom-0">
                 <h2 class="fw-bold mb-0">Cadastre-se</h2>
             </div>
-            <div class="modal-body p-5 pt-0">
+
+            <!-- Form antigo-->
+            <form class="modal-body p-0 pt-0" novalidate>
+                <div class="modal-body p-5 pt-0">
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control rounded-3" id="floatingInput"
-                            placeholder="name@exemplo.com">
-                        <label for="floatingInput">Email</label>
+                        <input type="text" class="form-control" id="validationEmail" value="" required>
+                        <label for="validationEmail" class="form-label">Email</label>
+                        <div class="valid-feedback">
+                            Ok!
+                        </div>
                     </div>
                     <div class="form-floating mb-3">
                         <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Senha">
                         <label for="floatingPassword">Senha</label>
                     </div>
-                    <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit" >Continuar</button>
-                    <small class="text-muted">Clicando em continuar, você concorda com nossos termos de uso. 
+                    <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Continuar</button>
+                    <small class="text-muted">Clicando em continuar, você concorda com nossos termos de uso.
                         © Pet Track, Inc. 2022.</small>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>

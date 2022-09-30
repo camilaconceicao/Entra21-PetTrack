@@ -43,3 +43,11 @@
 .text-black{
     font-size: 18px;
 }
+
+@media (max-width: 1280px) {
+    .gatinho{display: none;}
+}
+
+@media (max-width: 1900px) {
+    
+}

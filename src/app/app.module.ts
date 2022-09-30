@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { AdotaPetComponent } from './adota-pet/adota-pet.component';
 import { ComunidadeComponent } from './comunidade/comunidade.component';
+import { PopUpComponent } from './pop-up/pop-up.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ComunidadeComponent } from './comunidade/comunidade.component';
     AdotaPetComponent,
     LoginComponent,
     CadastroComponent,
-    ComunidadeComponent
+    ComunidadeComponent,
+    PopUpComponent
   ],
   imports: [
     BrowserModule,
