@@ -1,47 +1,42 @@
-<body>
-    <!-- Tela Cadastro -->
-    <div class="modal modal-signin position-static d-block bg-white py-5" tabindex="-1" role="dialog" id="modalSignin">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content rounded-4 shadow">
-                <div class="modal-header p-5 pb-1 border-bottom-0">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                </div>
-                <div class="mb-0 py-3 text-center">
-                    <img src="/assets/images/logo.png" alt="" width="150" height="150">
-                </div>
-                <div class="modal-header p-5 pb-4 py-1 border-bottom-0">
-                    <h2 class="fw-bold mb-0">Cadastre-se</h2>
-                </div>
-
-                <!-- Form antigo-->
-                <form class="needs-validation" novalidate>
-                    <div class="modal-body p-5 pt-0">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-3" id="validationEmail" value="" required>
-                            <label for="validationEmail" class="form-label">Email</label>
-                            <div class="valid-feedback">
-                                Ok!
-                            </div>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="password" class="form-control rounded-3" id="floatingPassword" value="" required>
-                            <label for="floatingPassword">Senha</label>
-                        </div>
-                        <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Continuar</button>
-                        <small class="text-muted">Clicando em continuar, você concorda com nossos termos de uso.
-                            © Pet Track, Inc. 2022.</small>
-                    </div>                
-                </form>
-        
+<!-- Tela Cadastro -->
+<div class="modal modal-signin position-static d-block bg-white py-5" tabindex="-1" role="dialog" id="modalSignin">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content rounded-4 shadow">
+            <div class="modal-header p-5 pb-1 border-bottom-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
             </div>
+            <div class="mb-0 py-3 text-center">
+                <img src="/assets/images/logo.png" alt="" width="150" height="150">
+            </div>
+            <div class="modal-header p-5 pb-4 py-1 border-bottom-0">
+                <h2 class="fw-bold mb-0">Cadastre-se</h2>
+            </div>
+
+            <!-- Form -->
+            <form class="needs-validation" novalidate (ngSubmit)="enviar()">
+                <div class="modal-body p-5 pt-0">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control rounded-3" id="validationCustom01 email" value=""
+                            required placeholder="name@exemplo.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                        <label for="validationEmail" class="form-label">Email</label>
+                        <div class="invalid-feedback">
+                            Email inválido!
+                        </div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control rounded-3" id="validationCustom01" value="" required
+                            placeholder="" minlength="8">
+                        <label for="floatingPassword">Senha</label>
+                        <div class="invalid-feedback">
+                            Senha deve conter pelo menos 8 caracteres!
+                        </div>
+                    </div>
+
+                    <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Continuar</button>
+                    <small class="text-muted">Clicando em continuar, você concorda com nossos termos de uso.
+                        © Pet Track, Inc. 2022.</small>
+                </div>
+            </form>
         </div>
     </div>
-    <script src="/src/app/cadastro/form-validation.js"></script>
-    <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-    crossorigin="anonymous"></script>
-    <script src="form-validation.js"></script>
-</body>
-
-
-
+</div>
