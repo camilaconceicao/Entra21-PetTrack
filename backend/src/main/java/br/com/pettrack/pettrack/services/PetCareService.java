@@ -21,4 +21,8 @@ public class PetCareService {
     public Optional<PetCare> getById(Long id) {
         return petCareRepository.findById(id);
     }
+
+    public void save(PetCare petCare) {
+        petCareRepository.save(petCare);
+    }
 }
