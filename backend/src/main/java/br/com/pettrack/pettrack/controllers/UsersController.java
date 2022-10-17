@@ -1,7 +1,10 @@
 package br.com.pettrack.pettrack.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +24,8 @@ public class UsersController {
 
         if (users.getId() == 0) {
             Users a = new Users();
-            a.setName(users.getName());
+            a.setEmail(users.getEmail());
+            a.setSenha(users.getSenha());
             this.usersService.save(a);
 
             id = a.getId();
@@ -32,5 +36,10 @@ public class UsersController {
         }
 
         return id;
+    }
+
+    @GetMapping("/users/")
+    public List<Users> listAllUsers() {
+        return this.usersService.getAll();
     }
 }
