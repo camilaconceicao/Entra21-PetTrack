@@ -11,6 +11,7 @@
             <div class="modal-header p-5 pb-4 py-1 border-bottom-0">
                 <h2 class="fw-bold mb-0">Login</h2>
             </div>
+<<<<<<< HEAD
             <form class="needs-validation" novalidate>
                 <div class="modal-body p-5 pt-0">
                         <div class="form-floating mb-3">
@@ -24,6 +25,31 @@
                         </div>
                         <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit" >Login</button>
                         <small class="text-muted">© Pet Track, Inc. 2022. We love our users!</small>
+=======
+
+            <!-- Form -->
+            <form class="needs-validation" novalidate (ngSubmit)="logar()">
+                <div class="modal-body p-5 pt-0">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control rounded-3" id="validationCustom01" value="" required
+                            placeholder="name@exemplo.com">
+                        <label for="validationEmail" class="form-label">Email</label>
+                        <div class="invalid-feedback">
+                            Email inválido!
+                        </div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control rounded-3" id="validationCustom01" value="" required
+                            placeholder="" minlength="">
+                        <label for="floatingPassword">Senha</label>
+                        <div class="invalid-feedback">
+                            Senha inválida!
+                        </div>
+                    </div>
+
+                    <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Continuar</button>
+                    <small class="text-muted">© Pet Track, Inc. 2022. We love our users!</small>
+>>>>>>> 568660691f9b8571cc5cc463f94176ecca91896a
                 </div>
             </form>
         </div>
