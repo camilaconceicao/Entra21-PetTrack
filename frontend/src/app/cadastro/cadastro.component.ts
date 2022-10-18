@@ -3,18 +3,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
 
-
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
   styleUrls: ['./cadastro.component.css'],
 })
 export class CadastroComponent implements OnInit {
-
   public dados: any = {
     id: 0,
     email: '',
-    senha: ''
+    senha: '',
   };
 
   public fieldForm = '';
@@ -22,25 +20,22 @@ export class CadastroComponent implements OnInit {
   constructor(
     private authService: AuthService,
     public cadastroService: CadastroService,
-    public test: Router,
+    public router: Router,
     public editRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {}
 
   enviar() {
-    this.validacao()
+    this.validacao();
 
     console.log(this.dados.senha);
-    
 
-    this.cadastroService.salvar(this.dados).subscribe(
-      (reponse: any) => {
-        this.dados.id = reponse;
-      }
-    );
+    this.cadastroService.salvar(this.dados).subscribe((reponse: any) => {
+      this.dados.id = reponse;
+    });
 
-    // this.test.navigate([''])
+    this.router.navigate(['']);
   }
 
   validacao() {

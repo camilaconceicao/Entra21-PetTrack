@@ -20,4 +20,8 @@ public class UsersService {
     public void save(Users users) {
         usersRespository.save(users);
     }
+
+    public Users findEmailAndPassword(String email, String senha) {
+        return usersRespository.findByEmailAndSenha(email, senha);
+    }
 }
