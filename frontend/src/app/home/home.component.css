@@ -107,3 +107,23 @@
 .h3{
     text-align: start;
 }
+
+.fs-2-amarelo{
+    color: #FFCA00;
+}
+
+.fs-2-azul{
+    color: #3F49B9;
+}
+
+.fs-2-verde{
+    color: #5FB93F;
+}
+
+.fs-2-vermelho{
+    color: #EA3232;
+}
+
+.gatinho{
+    padding: 0px;
+}

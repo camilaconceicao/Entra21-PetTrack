@@ -33,7 +33,12 @@ import { PopUpComponent } from './pop-up/pop-up.component';
     FormsModule,
     HttpClientModule
   ],
+  exports: [
+    PopUpComponent,
+  ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }
+export class PopUpModule{}
