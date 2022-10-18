@@ -22,4 +22,8 @@ public class PetService {
     public ResponseEntity<Optional<Pet>> getByName(String name) {
         return ResponseEntity.ok(petRepository.findByName(name));
     }
+
+    public void save(Pet pet) {
+        petRepository.save(pet);
+    }
 }

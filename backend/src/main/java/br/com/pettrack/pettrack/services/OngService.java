@@ -22,4 +22,8 @@ public class OngService {
     public ResponseEntity<Optional<Ong>> getByName(String name) {
         return ResponseEntity.ok(ongRepository.findByName(name));
     }
+
+    public void save(Ong ong) {
+        ongRepository.save(ong);
+    }
 }

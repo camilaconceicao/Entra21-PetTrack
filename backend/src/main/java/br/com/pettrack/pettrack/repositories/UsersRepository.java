@@ -7,5 +7,5 @@ import br.com.pettrack.pettrack.models.Users;
 
 @Repository
 public interface UsersRepository extends JpaRepository<Users, Long> {
-    
+    public Users findByEmailAndSenha(String email, String senha);
 }

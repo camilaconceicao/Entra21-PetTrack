@@ -11,19 +11,19 @@ import { PopUpComponent } from './pop-up/pop-up.component';
 
 //Definir as rotas:
 const routes: Routes = [
-    {path:'', component:HomeComponent},
-    {path:'home', component:HomeComponent},
-    {path:'pet-track', component:PetTrackComponent},
-    {path:'pet-care', component:PetCareComponent},
-    {path:'adota-pet', component:AdotaPetComponent},
-    {path:'login', component:LoginComponent},
-    {path:'cadastro', component:CadastroComponent},
-    {path: 'comunidade', component:ComunidadeComponent},
-    {path: 'pop-up', component:PopUpComponent}  //nome da pasta que criou, indiferente aspas simples ou duplas
-  ];
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'pet-track', component: PetTrackComponent },
+  { path: 'pet-care', component: PetCareComponent },
+  { path: 'adota-pet', component: AdotaPetComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'cadastro', component: CadastroComponent },
+  { path: 'comunidade', component: ComunidadeComponent },
+  { path: 'pop-up', component: PopUpComponent }, //nome da pasta que criou, indiferente aspas simples ou duplas
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

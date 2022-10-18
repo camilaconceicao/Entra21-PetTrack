@@ -1,3 +1,5 @@
+import { CadastroService } from './cadastro.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
 
@@ -7,11 +9,33 @@ import { AuthService } from './auth.service';
   styleUrls: ['./cadastro.component.css'],
 })
 export class CadastroComponent implements OnInit {
-  constructor(private authService: AuthService) {}
+  public dados: any = {
+    id: 0,
+    email: '',
+    senha: '',
+  };
+
+  public fieldForm = '';
+
+  constructor(
+    private authService: AuthService,
+    public cadastroService: CadastroService,
+    public router: Router,
+    public editRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {}
 
   enviar() {
+    this.validacao();
+
+    console.log(this.dados.senha);
+
+    this.cadastroService.salvar(this.dados).subscribe((reponse: any) => {
+      this.dados.id = reponse;
+    });
+
+    this.router.navigate(['']);
   }
 
   validacao() {
