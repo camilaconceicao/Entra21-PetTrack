@@ -1,3 +1,4 @@
+import { AuthService } from './login/auth.service';
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -15,7 +16,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'pet-track', component: PetTrackComponent },
   { path: 'pet-care', component: PetCareComponent },
-  { path: 'adota-pet', component: AdotaPetComponent },
+  { path: 'adota-pet', component: AdotaPetComponent, canActivate:[AuthService]},
   { path: 'login', component: LoginComponent },
   { path: 'cadastro', component: CadastroComponent },
   { path: 'comunidade', component: ComunidadeComponent },

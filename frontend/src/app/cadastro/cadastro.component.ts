@@ -29,8 +29,6 @@ export class CadastroComponent implements OnInit {
   enviar() {
     this.validacao();
 
-    console.log(this.dados.senha);
-
     this.cadastroService.salvar(this.dados).subscribe((reponse: any) => {
       this.dados.id = reponse;
     });
