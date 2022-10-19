@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.pettrack.pettrack.models.AuthModel;
 import br.com.pettrack.pettrack.models.Users;
 import br.com.pettrack.pettrack.services.UsersService;
 
@@ -23,13 +22,13 @@ public class UsersController {
     UsersService usersService;
 
     @PostMapping("/cadastro/")
-    public Long cadastrar(@RequestBody Users users) {
+    public Long cadastrar(@RequestBody Users users) throws NoSuchAlgorithmException, UnsupportedEncodingException {
         Long id = 0L;
 
         if (users.getId() == 0) {
             Users a = new Users();
             a.setEmail(users.getEmail());
-            a.setSenha(users.getSenha());
+            a.setSenha(hashSenha(users.getSenha()));
             this.usersService.save(a);
 
             id = a.getId();
@@ -47,8 +46,8 @@ public class UsersController {
         return this.usersService.getAll();
     }
 
-    @PostMapping("/auth/")
-    public boolean logar(@RequestBody AuthModel authModel) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+    @PostMapping("/auth")
+    public boolean logar(@RequestBody Users authModel) throws NoSuchAlgorithmException, UnsupportedEncodingException {
         Users user = usersService.findEmailAndPassword(authModel.getEmail(), hashSenha(authModel.getSenha()));
         return user == null ? false : true;
     }

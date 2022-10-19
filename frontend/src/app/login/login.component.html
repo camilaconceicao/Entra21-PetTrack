@@ -32,7 +32,8 @@
                 <div class="modal-body p-5 pt-0">
                     <div class="form-floating mb-3">
                         <input type="email" class="form-control rounded-3" id="validationCustom01" value="" required
-                            placeholder="name@exemplo.com" [(ngModel)]="user.email">
+                            placeholder="name@exemplo.com" [(ngModel)]="user.email"
+                            [ngModelOptions]="{standalone: true}">
                         <label for="validationEmail" class="form-label">Email</label>
                         <div class="invalid-feedback">
                             Email inválido!
@@ -40,7 +41,7 @@
                     </div>
                     <div class="form-floating mb-3">
                         <input type="password" class="form-control rounded-3" id="validationCustom01" value="" required
-                            [(ngModel)]="user.senha">
+                            placeholder="" minlength="8" [(ngModel)]="user.senha" [ngModelOptions]="{standalone: true}">
                         <label for="floatingPassword">Senha</label>
                         <div class="invalid-feedback">
                             Senha inválida!
