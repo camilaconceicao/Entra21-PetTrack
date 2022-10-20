@@ -33,7 +33,7 @@ export class CadastroComponent implements OnInit {
       this.dados.id = reponse;
     });
 
-    this.router.navigate(['']);
+    this.router.navigate(['/tipo']);
   }
 
   validacao() {

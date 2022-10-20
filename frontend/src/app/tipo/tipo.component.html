@@ -1,0 +1,110 @@
+<!-- Tela Cadastro -->
+<div class="modal modal-signin position-static d-block bg-white py-5" tabindex="-1" role="dialog" id="modalSignin">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content rounded-4 shadow">
+            <div class="modal-header p-5 pb-1 border-bottom-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="mb-0 py-3 text-center">
+                <img src="/assets/images/logo.png" alt="" width="150" height="150">
+            </div>
+            <div class="modal-header p-5 pb-4 py-1 border-bottom-0">
+                <h2 class="fw-bold mb-0">Complete suas informações:</h2>
+            </div>
+
+            <!-- Form -->
+            <form class="needs-validation" novalidate>
+                <div class="modal-body p-5 pt-0">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nome">
+                    </div>
+                    <div class="mb-3">
+                        <label for="endereco" class="form-label">Endereço</label>
+                        <input type="text" class="form-control" id="endereco">
+                    </div>
+                    <div class="mb-3">
+                        <label for="cidade" class="form-label">Cidade</label>
+                        <input type="text" class="form-control" id="cidade">
+                    </div>
+                    <div class="mb-3">
+                        <label for="tel" class="form-label">Telefone</label>
+                        <input type="text" class="form-control" id="tel">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleSelect" class="form-label">Selecione</label>
+                        <select [(ngModel)]="exibir" class="form-select" name="teste" id="exampleSelect">
+                            <option value="0">O que deseja cadastrar?</option>
+                            <option value="1">Animal Perdido</option>
+                            <option value="2">Pet Shop</option>
+                            <option value="3">ONG</option>
+                        </select>
+                    </div>
+                    <div *ngIf="exibir == 1">
+                        <div class="mb-3">
+                            <label for="nomePet" class="form-label">Nome do Pet</label>
+                            <input type="text" class="form-control" id="nomePet">
+                        </div>
+                        <div class="mb-3">
+                            <label for="local" class="form-label">Último local conhecido</label>
+                            <input type="text" class="form-control" id="local">
+                        </div>
+                        <div class="mb-3">
+                            <label for="data" class="form-label">Última data visto</label>
+                            <input type="text" class="form-control" id="data">
+                        </div>
+                        <div class="mb-3">
+                            <label for="descricao" class="form-label">Descrição</label>
+                            <input type="text" class="form-control" id="descricao">
+                        </div>
+                    </div>
+
+                    <div *ngIf="exibir == 2">
+                        <div class="mb-3">
+                            <label for="nomePetShop" class="form-label">Pet Shop</label>
+                            <input type="text" class="form-control" id="nomePetShop">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cnpj" class="form-label">CNPJ</label>
+                            <input type="text" class="form-control" id="cnpj">
+                        </div>
+                        <div class="mb-3">
+                            <label for="enderecoL" class="form-label">Endereço</label>
+                            <input type="text" class="form-control" id="enderecoL">
+                        </div>
+                    </div>
+
+                    <div *ngIf="exibir == 3">
+                        <div class="mb-3">
+                            <label for="nomeOng" class="form-label">Ong</label>
+                            <input type="text" class="form-control" id="nomeOng">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cnpj" class="form-label">CNPJ</label>
+                            <input type="text" class="form-control" id="cnpj">
+                        </div>
+                        <div class="mb-3">
+                            <label for="enderecoL" class="form-label">Endereço</label>
+                            <input type="text" class="form-control" id="enderecoL">
+                        </div>
+                        <div class="mb-3">
+                            <label for="dados" class="form-label">Descrição</label>
+                            <input type="text" class="form-control" id="dados">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label" for="customFile">Upload de Imagem</label>
+                        <input type="file" class="form-control" id="customFile">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Sem foto</label>
+                      </div>
+                    
+                    <button type="submit" class="w-100 mb-2 btn btn-lg rounded-3 btn-primary">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
