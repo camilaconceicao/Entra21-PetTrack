@@ -2,6 +2,7 @@ import { CadastroService } from './cadastro.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-cadastro',
@@ -21,10 +22,15 @@ export class CadastroComponent implements OnInit {
     private authService: AuthService,
     public cadastroService: CadastroService,
     public router: Router,
-    public editRoute: ActivatedRoute
+    public editRoute: ActivatedRoute,
+    private location: Location
   ) {}
 
   ngOnInit(): void {}
+
+  public back() {
+    return this.location.back();
+  }
 
   enviar() {
     this.validacao();
