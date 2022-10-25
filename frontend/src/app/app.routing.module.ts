@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'comunidade', component: ComunidadeComponent },
   { path: 'pop-up', component: PopUpComponent },
   { path: 'tipo', component: TipoComponent},
-  { path: 'teste', component: MapaComponent},
+  { path: 'mapa', component: MapaComponent},
 ];
 
 @NgModule({
