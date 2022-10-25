@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'pet-track', component: PetTrackComponent },
   { path: 'pet-care', component: PetCareComponent },
-  { path: 'adota-pet', component: AdotaPetComponent, canActivate:[AuthService]},
+  { path: 'adota-pet', component: AdotaPetComponent},
   { path: 'login', component: LoginComponent },
   { path: 'cadastro', component: CadastroComponent },
   { path: 'comunidade', component: ComunidadeComponent },

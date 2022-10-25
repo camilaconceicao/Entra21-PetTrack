@@ -10,4 +10,5 @@ import br.com.pettrack.pettrack.models.Ong;
 @Repository
 public interface OngRepository extends JpaRepository<Ong, Long> {
     Optional<Ong> findByName(String name);
+
 }

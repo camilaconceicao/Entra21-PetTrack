@@ -20,4 +20,8 @@ public class Ong {
     private Long id;
 
     private String name;
+    private int cnpj;
+    private String endereco;
+    private String descricao;
+
 }
