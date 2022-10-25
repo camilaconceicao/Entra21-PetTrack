@@ -15,6 +15,7 @@ import { AdotaPetComponent } from './adota-pet/adota-pet.component';
 import { ComunidadeComponent } from './comunidade/comunidade.component';
 import { PopUpComponent } from './pop-up/pop-up.component';
 import { TipoComponent } from './tipo/tipo.component';
+import { MapaComponent } from './mapa/mapa.component';
 
 @NgModule({
   declarations: [
@@ -27,13 +28,14 @@ import { TipoComponent } from './tipo/tipo.component';
     CadastroComponent,
     ComunidadeComponent,
     PopUpComponent,
-    TipoComponent
+    TipoComponent,
+    MapaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   exports: [
     PopUpComponent,
