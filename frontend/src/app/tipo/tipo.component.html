@@ -36,8 +36,9 @@
                         <select [(ngModel)]="exibir" class="form-select" name="teste" id="exampleSelect">
                             <option value="0">O que deseja cadastrar?</option>
                             <option value="1">Animal Perdido</option>
-                            <option value="2">Pet Shop</option>
-                            <option value="3">ONG</option>
+                            <option value="2">Animal Adoção</option>
+                            <option value="3">Pet Shop</option>
+                            <option value="4">ONG</option>
                         </select>
                     </div>
                     <div *ngIf="exibir == 1">
@@ -61,7 +62,22 @@
 
                     <div *ngIf="exibir == 2">
                         <div class="mb-3">
-                            <label for="nomePetShop" class="form-label">Pet Shop</label>
+                            <label for="nomePet" class="form-label">Nome do Pet</label>
+                            <input type="text" class="form-control" id="nomePet">
+                        </div>
+                        <div class="mb-3">
+                            <label for="local" class="form-label">Porte</label>
+                            <input type="text" class="form-control" id="local">
+                        </div>
+                        <div class="mb-3">
+                            <label for="descricao" class="form-label">Descrição</label>
+                            <input type="text" class="form-control" id="descricao">
+                        </div>
+                    </div>
+
+                    <div *ngIf="exibir == 3">
+                        <div class="mb-3">
+                            <label for="nomePetShop" class="form-label">Nome Fantasia</label>
                             <input type="text" class="form-control" id="nomePetShop">
                         </div>
                         <div class="mb-3">
@@ -74,9 +90,9 @@
                         </div>
                     </div>
 
-                    <div *ngIf="exibir == 3">
+                    <div *ngIf="exibir == 4">
                         <div class="mb-3">
-                            <label for="nomeOng" class="form-label">Ong</label>
+                            <label for="nomeOng" class="form-label">Nome Fantasia</label>
                             <input type="text" class="form-control" id="nomeOng">
                         </div>
                         <div class="mb-3">
