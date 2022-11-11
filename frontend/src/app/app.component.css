@@ -2,6 +2,7 @@
     color: #ffffff;
     background-color: #eb6969;
     padding: 8px 50px;
+    min-width: 25vh !important;
     border-radius: 30px;
     --bs-btn-hover-color: var(--bs-btn-hover-border-color);
     --bs-btn-hover-bg: #ffffff;

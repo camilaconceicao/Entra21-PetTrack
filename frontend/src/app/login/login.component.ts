@@ -2,6 +2,8 @@ import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { BaseService } from 'src/service/base-service.component';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,16 +11,23 @@ import { Location } from '@angular/common';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  public user: any = {
-    email: '',
-    senha: '',
-  };
+  loginFormGroup: FormGroup;
+  submitLogin: boolean = false;
+  loading: boolean = false;
 
   constructor(
     private authService: AuthService, 
     private router: Router,
-    private location: Location
-    ) {}
+    private location: Location,
+    private formBuilder: FormBuilder,
+    private response: BaseService,
+    ) {
+
+      this.loginFormGroup = this.formBuilder.group({
+        emailLogin: ['', Validators.required],
+        senhaLogin: ['', Validators.required]
+      });
+    }
 
 
   ngOnInit() {}
@@ -27,10 +36,28 @@ export class LoginComponent implements OnInit {
     return this.location.back()
   }
 
-  logar() {
-    this.authService.login(this.user).subscribe((res: any) => {
-      this.auth(res);
-    });
+  Login = (form:any) =>{
+    this.submitLogin = true;
+
+    if(this.loginFormGroup.invalid){
+      this.submitLogin = true;
+      return;
+    }
+
+    this.loading = true;
+    this.response.Post("Auth","Login",form.value).subscribe(
+      (response: any) =>{        
+        if(response.sucesso){
+          window.localStorage.setItem('NomeUsuario',response.data.nome);
+          window.localStorage.setItem('Token',response.data.sessionKey.acess_token);
+          // this.toastr.success('<small>' + 'Seja bem vindo ' + response.data.nome + '<small>', 'Mensagem:');   
+          // this.router.navigate(['/', 'main'])
+        }else{
+          // this.toastr.error('<small>' + response.mensagem + '</small>', 'Mensagem:');
+        }
+        this.loading = false;
+      }
+    );
   }
 
   auth(is_auth: boolean) {

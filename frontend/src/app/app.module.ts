@@ -16,6 +16,8 @@ import { ComunidadeComponent } from './comunidade/comunidade.component';
 import { PopUpComponent } from './pop-up/pop-up.component';
 import { TipoComponent } from './tipo/tipo.component';
 import { MapaComponent } from './mapa/mapa.component';
+import { TextErrorMessageComponent } from './text-error-message/text-error-message.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,13 +31,15 @@ import { MapaComponent } from './mapa/mapa.component';
     ComunidadeComponent,
     PopUpComponent,
     TipoComponent,
-    MapaComponent
+    MapaComponent,
+    TextErrorMessageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   exports: [
     PopUpComponent,

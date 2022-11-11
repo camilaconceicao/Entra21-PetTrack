@@ -13,26 +13,20 @@
             </div>
 
             <!-- Form -->
-            <form class="needs-validation" novalidate (ngSubmit)="logar()">
+            <form class="needs-validation" [formGroup]="loginFormGroup" (ngSubmit)="Login(loginFormGroup)" autocomplete="off">
                 <div class="modal-body p-5 pt-0">
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control rounded-3" id="validationCustom01" value="" required
-                            placeholder="name@exemplo.com" [(ngModel)]="user.email"
-                            [ngModelOptions]="{standalone: true}">
-                        <label for="validationEmail" class="form-label">Email</label>
-                        <div class="invalid-feedback">
-                            Email inválido!
-                        </div>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="password" class="form-control rounded-3" id="validationCustom01" value="" required
-                            placeholder="" minlength="8" [(ngModel)]="user.senha" [ngModelOptions]="{standalone: true}">
-                        <label for="floatingPassword">Senha</label>
-                        <div class="invalid-feedback">
-                            Senha inválida!
-                        </div>
-                    </div>
-
+                    <div class="mb-3 mt-3">
+                        <input type="email" formControlName="emailLogin" maxlength="100" class="form-control form-control-lg" id="emailLogin" placeholder="Insira seu email" name="emailLogin" >
+                        <text-error-message  *ngIf="loginFormGroup.get('emailLogin')?.errors?.['required'] && submitLogin"
+                          text="Este campo é obrigatório">
+                        </text-error-message>
+                      </div>
+                      <div class="mb-3">
+                        <input type="password" formControlName="senhaLogin" maxlength="10" class="form-control form-control-lg" id="senhaLogin" placeholder="Insira sua senha" name="senhaLogin">
+                        <text-error-message  *ngIf="loginFormGroup.get('senhaLogin')?.errors?.['required'] && submitLogin"
+                          text="Este campo é obrigatório">
+                        </text-error-message>
+                      </div>
                     <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Continuar</button>
                     <small class="text-muted">© Pet Track, Inc. 2022. We love our users!</small>
                 </div>
