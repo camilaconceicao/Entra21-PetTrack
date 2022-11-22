@@ -1,7 +1,4 @@
-import { Router } from '@angular/router';
-import { AuthService } from './auth.service';
-import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
+import { Component } from '@angular/core';
 import { BaseService } from 'src/service/base-service.component';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -10,15 +7,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent{
   loginFormGroup: FormGroup;
   submitLogin: boolean = false;
   loading: boolean = false;
 
   constructor(
-    private authService: AuthService, 
-    private router: Router,
-    private location: Location,
     private formBuilder: FormBuilder,
     private response: BaseService,
     ) {
@@ -27,13 +21,6 @@ export class LoginComponent implements OnInit {
         emailLogin: ['', Validators.required],
         senhaLogin: ['', Validators.required]
       });
-    }
-
-
-  ngOnInit() {}
-
-  public back() {
-    return this.location.back()
   }
 
   Login = (form:any) =>{
@@ -58,21 +45,5 @@ export class LoginComponent implements OnInit {
         this.loading = false;
       }
     );
-  }
-
-  auth(is_auth: boolean) {
-    if (is_auth) {
-      this.authService.autenticar();
-      this.success();
-    } else {
-      this.error();
-    }
-  }
-
-  success() {
-    this.router.navigate(['']);
-  }
-  error() {
-    alert('Erro ao realizar o login');
   }
 }

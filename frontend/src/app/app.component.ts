@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AuthService } from './cadastro/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +8,7 @@ import { AuthService } from './cadastro/auth.service';
 export class AppComponent {
   public title = 'Hello World, Entra21 SENAC.';
 
-  constructor(private authService:AuthService){
+  constructor(){
 
   }
 }
