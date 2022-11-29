@@ -1,0 +1,60 @@
+  <!-- Rodapé -->
+  <div class="container">
+    <footer class="py-5">
+      <div class="row">
+        <div class="col-12 col-md-4 mb-2">
+          <ul class="nav flex-column">
+            <a routerLink=""><img class="bi me-2" width="220" height="80" role="img"
+                src="/assets/images/logopets_final.png" alt="Logo2 Pet Track"></a>
+          </ul>
+        </div>
+        <div class="col-6 col-md-2 mb-2">
+          <h5>Comunidade</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Em alta</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Eventos</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Informações</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Contato</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Sobre</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 offset-md-2 mb-3" *ngIf="!usuarioLogado">
+          <div class="d-flex flex-column flex-bg-row w-60 gap-2">
+            <a routerLink="cadastro"><button class="btn btn-bd-primary"
+                type="button">Cadastre-se</button></a>
+          </div>
+          <br>
+          <div class="d-flex flex-column flex-bg-row w-60 gap-2">
+            <a routerLink="login"><button class="btn btn-bd-primary"
+                type="button">Login</button></a>
+          </div>
+        </div>
+        <div class="col-md-2 offset-md-2 mb-3" *ngIf="usuarioLogado">
+          <div class="d-flex flex-column flex-bg-row w-60 gap-2">
+            <button class="btn btn-bd-primary" (click)="Deslogar()" type="button">Sair</button>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+        <p class="text-muted">© Pet Track, Inc. 2022. We love our users!</p>
+        <ul class="list-unstyled d-flex">
+          <li class="ms-3"><a href="#"><img class="link-dark" width="30" height="30" role="img"
+                src="assets/images/e-mail.png" alt="email"></a>
+          </li>
+          <li class="ms-3"><a href="https://www.facebook.com/PetTrack/" target="_blank"><img
+                class="link-dark" width="30" height="30" role="img" src="assets/images/facebook.png"
+                alt="facebook"></a>
+          </li>
+          <li class="ms-3"><a href="https://www.instagram.com/pettrack/" target="_blank"><img
+                class="link-dark" width="30" height="30" role="img"
+                src="assets/images/instagram.png" alt="instagram"></a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </div>

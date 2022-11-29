@@ -9,16 +9,16 @@
                 <img src="/assets/images/logo.png" alt="" width="150" height="150">
             </div>
             <div class="modal-header p-5 pb-4 py-1 border-bottom-0">
-                <h2 class="fw-bold mb-0">Cadastre-se</h2>
+                <h2 class="fw-bold mb-0">Cadastre seu Pet</h2>
             </div>
             <div class="modal-body p-5 pt-0">
               <mat-stepper #stepper orientation="vertical">
                 <mat-step [stepControl]="PerfilFormGroup" errorMessage="Existem campos não preenchido ou inválidos.">
                   <form [formGroup]="PerfilFormGroup">
-                    <ng-template matStepLabel>Dados pessoais</ng-template>
+                    <ng-template matStepLabel>Informações do Pet</ng-template>
                     <div class="row mt-2">
                       <mat-form-field appearance="outline">
-                        <mat-label>Nome completo:</mat-label>
+                        <mat-label>Nome do Pet:</mat-label>
                         <input matInput placeholder="Insira seu nome" formControlName="nome" maxlength="100">
                         <mat-hint>
                           <text-error-message  
@@ -83,9 +83,62 @@
                     </div>
                   </form>
                 </mat-step>
-                <mat-step [stepControl]="EnderecoFormGroup" optional>
+                <mat-step [stepControl]="AcessoFormGroup" errorMessage="Existem campos não preenchido ou inválidos.">
+                    <form [formGroup]="AcessoFormGroup">
+                      <ng-template matStepLabel>Dados cadastrais</ng-template>
+                      <div class="row mt-2">
+                        <mat-form-field appearance="outline">
+                          <mat-label>Email:</mat-label>
+                          <input matInput placeholder="Insira seu email" formControlName="email" maxlength="50">
+                          <mat-hint>
+                            <text-error-message  
+                            *ngIf="AcessoFormGroup.get('email')?.errors?.['required'] && (AcessoFormGroup.get('email')?.touched || submit)"
+                            text="Este campo é obrigatório">
+                            </text-error-message>
+                            <text-error-message  
+                              *ngIf="AcessoFormGroup.get('email')?.errors?.['email'] && (AcessoFormGroup.get('email')?.touched || submit)"
+                              text="Campo inválido">                        
+                            </text-error-message>
+                          </mat-hint>
+                        </mat-form-field>
+                      </div>
+                      <div class="row mt-2">
+                        <mat-form-field appearance="outline">
+                          <mat-label>Senha:</mat-label>
+                          <input [type]="hide ? 'password' : 'text'" matInput placeholder="Insira sua senha" formControlName="senha" maxlength="10">
+                          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                          </button>
+                          <mat-hint>
+                            <text-error-message  
+                            *ngIf="AcessoFormGroup.get('senha')?.errors?.['required'] && (AcessoFormGroup.get('senha')?.touched || submit)"
+                            text="Este campo é obrigatório">
+                            </text-error-message>
+                            <text-error-message  
+                            *ngIf="AcessoFormGroup.get('senha')?.errors?.['invalidSenha'] && (AcessoFormGroup.get('senha')?.touched || submit) && 
+                            !AcessoFormGroup.get('senha')?.errors?.['required']"
+                            [text]="AcessoFormGroup.get('senha')?.errors?.['Motivo']">
+                            </text-error-message>
+                          </mat-hint>
+                        </mat-form-field>
+                      </div>
+                      <div class="row mt-2">
+                        <mat-checkbox formControlName="termo">
+                          <small>
+                              Li e concordo com o <a><b>termo de consentimento</b></a> e aceito os termos e condições!
+                          </small>
+                        </mat-checkbox>
+                      </div>
+                      <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-5">
+                        <spinner-component [hidden]="!loading"></spinner-component>
+                        <button class="btn btn btn-outline-dark btn-sm" type="button" [hidden]="loading" matStepperPrevious>Voltar</button>
+                        <button class="btn btn btn-success btn-sm" (click)="Salvar()" [hidden]="loading" type="button" matStepperNext>Salvar</button>
+                      </div>
+                    </form>
+                  </mat-step>
+                <mat-step [stepControl]="EnderecoFormGroup">
                   <form [formGroup]="EnderecoFormGroup">
-                    <ng-template matStepLabel>Endereço</ng-template>
+                    <ng-template matStepLabel>Localização</ng-template>
                     <div class="row mt-2">
                       <mat-form-field appearance="outline">
                         <mat-label>Cep:</mat-label>
@@ -141,59 +194,6 @@
                       <spinner-component [hidden]="!loading"></spinner-component>
                       <button class="btn btn btn-outline-dark btn-sm" [hidden]="loading" type="button" matStepperPrevious>Voltar</button>
                       <button class="btn btn btn-outline-dark btn-sm" [hidden]="loading" type="button" matStepperNext>Próximo</button>
-                    </div>
-                  </form>
-                </mat-step>
-                <mat-step [stepControl]="AcessoFormGroup" errorMessage="Existem campos não preenchido ou inválidos.">
-                  <form [formGroup]="AcessoFormGroup">
-                    <ng-template matStepLabel>Dados de acesso</ng-template>
-                    <div class="row mt-2">
-                      <mat-form-field appearance="outline">
-                        <mat-label>Email:</mat-label>
-                        <input matInput placeholder="Insira seu email" formControlName="email" maxlength="50">
-                        <mat-hint>
-                          <text-error-message  
-                          *ngIf="AcessoFormGroup.get('email')?.errors?.['required'] && (AcessoFormGroup.get('email')?.touched || submit)"
-                          text="Este campo é obrigatório">
-                          </text-error-message>
-                          <text-error-message  
-                            *ngIf="AcessoFormGroup.get('email')?.errors?.['email'] && (AcessoFormGroup.get('email')?.touched || submit)"
-                            text="Campo inválido">                        
-                          </text-error-message>
-                        </mat-hint>
-                      </mat-form-field>
-                    </div>
-                    <div class="row mt-2">
-                      <mat-form-field appearance="outline">
-                        <mat-label>Senha:</mat-label>
-                        <input [type]="hide ? 'password' : 'text'" matInput placeholder="Insira sua senha" formControlName="senha" maxlength="10">
-                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                        </button>
-                        <mat-hint>
-                          <text-error-message  
-                          *ngIf="AcessoFormGroup.get('senha')?.errors?.['required'] && (AcessoFormGroup.get('senha')?.touched || submit)"
-                          text="Este campo é obrigatório">
-                          </text-error-message>
-                          <text-error-message  
-                          *ngIf="AcessoFormGroup.get('senha')?.errors?.['invalidSenha'] && (AcessoFormGroup.get('senha')?.touched || submit) && 
-                          !AcessoFormGroup.get('senha')?.errors?.['required']"
-                          [text]="AcessoFormGroup.get('senha')?.errors?.['Motivo']">
-                          </text-error-message>
-                        </mat-hint>
-                      </mat-form-field>
-                    </div>
-                    <div class="row mt-2">
-                      <mat-checkbox formControlName="termo">
-                        <small>
-                            Li e concordo com o <a><b>termo de consentimento</b></a> e aceito os termos e condições!
-                        </small>
-                      </mat-checkbox>
-                    </div>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-5">
-                      <spinner-component [hidden]="!loading"></spinner-component>
-                      <button class="btn btn btn-outline-dark btn-sm" type="button" [hidden]="loading" matStepperPrevious>Voltar</button>
-                      <button class="btn btn btn-success btn-sm" (click)="Salvar()" [hidden]="loading" type="button" matStepperNext>Salvar</button>
                     </div>
                   </form>
                 </mat-step>

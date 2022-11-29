@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="card"> 
+    <div class="card-header">
+      <div class="row">
+        <div class="d-flex justify-content-start text-header">
+          Meus Petz
+        </div>
+      </div>
+      <div class="row">
+        <div class="d-flex justify-content-end text-muted">
+          <span class="locale-text">Cadastro > <strong class="text-decoration-underline">Petz</strong></span>
+        </div>
+      </div>
+    </div> 
+    <div class="card-body">
+      <div class="row">
+          <div class="d-flex justify-content-end">
+            <button mat-icon-button color="warn" routerLink="novo-pet" matTooltip="Novo pet" aria-label="Example icon-button with a pet icon">
+              <mat-icon>pets</mat-icon>
+            </button>
+          </div>
+      </div>
+      <div class="row px-2">
+        <data-grid [gridOptions]="gridOptions" [modal]="false" (Editar)="Editar($event)"></data-grid>  
+      </div>
+    </div> 
+  </div> 
+</div>

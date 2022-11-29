@@ -8,7 +8,7 @@
         <div class="col-lg-6">
             <h1 class="display-2 fw-bold lh-1 mb-3">Pet Track, <br> rede de busca <br> de animais</h1>
             <p class="lead">Pets amam incondicionalmente, você só precisa ajudá-los a achar seu lar.</p>
-            <div class="text-end-reverse">
+            <div class="text-end-reverse" *ngIf="!usuarioLogado">
                 <a routerLink="cadastro"><button class="btn btn-bd-primary" type="button">Faça Parte!</button></a>
             </div>
         </div>

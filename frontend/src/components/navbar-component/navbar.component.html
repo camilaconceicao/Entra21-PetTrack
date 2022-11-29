@@ -1,0 +1,43 @@
+  <!-- Cabeçalho -->
+  <header class="p-3 text-bg-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a routerLink=""
+          class="d-flex align-items-center mb-2 mb-lg-0 text-black text-decoration-none">
+          <img class="bi me-2" width="100" height="100" role="img" src="/assets/images/logo.png"
+            alt="Pet Track">
+        </a>
+        <ul class="nav col-12 col-lg-6 me-lg-auto mb-2 justify-content-center mb-md-0 d-inline">
+          <a routerLink=""><button class="dropbtn">Início</button></a>
+          <div class="dropdown">
+            <button class="dropbtn">Serviços</button>
+            <div class="dropdown-content">
+              <a routerLink="adota-pet">Adota Pet</a>
+              <a routerLink="pet-track">Busca Pet</a>
+              <a routerLink="pet-care">Pet Care</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn">Comunidade</button>
+            <div class="dropdown-content">
+              <a routerLink="comunidade">ONG's</a>
+            </div>
+          </div>
+          <div class="dropdown" *ngIf="usuarioLogado">
+            <button class="dropbtn">Cadastro</button>
+            <div class="dropdown-content">
+              <a routerLink="cadastros-pet">Petz</a>
+            </div>
+          </div>
+        </ul>
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="busca">
+          <input type="busca" class="form-control form-control-light text-bg-black"
+            placeholder="Busca" aria-label="Busca">
+        </form>
+        <div class="text-end">
+          <a routerLink="login" *ngIf="!usuarioLogado"><button type="button" class="btn btn-bd-primary">Login</button></a>
+          <a routerLink="login" *ngIf="usuarioLogado"><button type="button" class="btn btn-bd-primary">Meu Perfil</button></a>
+        </div>
+      </div>
+    </div>
+  </header>

@@ -1,4 +1,3 @@
-<!-- Tela Login -->
 <div class="modal modal-signin position-static d-block bg-white py-5" tabindex="-1" role="dialog" id="modalSignin">
     <div class="modal-dialog" role="document">
         <div class="modal-content rounded-4 shadow">
@@ -11,26 +10,43 @@
             <div class="modal-header p-5 pb-4 py-1 border-bottom-0">
                 <h2 class="fw-bold mb-0">Login</h2>
             </div>
-
-            <!-- Form -->
-            <form class="needs-validation" [formGroup]="loginFormGroup" (ngSubmit)="Login(loginFormGroup)" autocomplete="off">
+            <form class="needs-validation" [formGroup]="LoginFormGroup" (ngSubmit)="Login(LoginFormGroup)" autocomplete="off">
                 <div class="modal-body p-5 pt-0">
-                    <div class="mb-3 mt-3">
-                        <input type="email" formControlName="emailLogin" maxlength="100" class="form-control form-control-lg" id="emailLogin" placeholder="Insira seu email" name="emailLogin" >
-                        <text-error-message  *ngIf="loginFormGroup.get('emailLogin')?.errors?.['required'] && submitLogin"
-                          text="Este campo é obrigatório">
-                        </text-error-message>
+                    <div class="row mt-2">
+                        <mat-form-field appearance="outline">
+                          <mat-label>Email:</mat-label>
+                          <input matInput placeholder="Insira seu email" formControlName="emailLogin" maxlength="50">
+                          <mat-hint>
+                            <text-error-message
+                            *ngIf="LoginFormGroup.get('emailLogin')?.errors?.['required'] && (LoginFormGroup.get('emailLogin')?.touched || submitLogin)"
+                            text="Este campo é obrigatório">
+                          </text-error-message>
+                          </mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div class="row mt-2">
+                        <mat-form-field appearance="outline">
+                          <mat-label>Senha:</mat-label>
+                          <input [type]="hide ? 'password' : 'text'" matInput placeholder="Insira sua senha" formControlName="senhaLogin" maxlength="10">
+                          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                          </button>
+                          <mat-hint>
+                            <text-error-message
+                            *ngIf="LoginFormGroup.get('senhaLogin')?.errors?.['required'] && (LoginFormGroup.get('senhaLogin')?.touched || submitLogin)"
+                            text="Este campo é obrigatório">
+                            </text-error-message>
+                          </mat-hint>
+                        </mat-form-field>
                       </div>
-                      <div class="mb-3">
-                        <input type="password" formControlName="senhaLogin" maxlength="10" class="form-control form-control-lg" id="senhaLogin" placeholder="Insira sua senha" name="senhaLogin">
-                        <text-error-message  *ngIf="loginFormGroup.get('senhaLogin')?.errors?.['required'] && submitLogin"
-                          text="Este campo é obrigatório">
-                        </text-error-message>
+                      <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+                        <spinner-component [hidden]="!loading"></spinner-component>
+                        <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" [hidden]="loading" matTooltip="Logar!" type="submit">Continuar</button>
                       </div>
-                    <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Continuar</button>
                     <small class="text-muted">© Pet Track, Inc. 2022. We love our users!</small>
                 </div>
             </form>
         </div>
     </div>
-</div>
+</div> 
+

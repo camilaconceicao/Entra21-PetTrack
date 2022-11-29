@@ -1,99 +1,129 @@
-import { Component } from '@angular/core';
+import { Component,EventEmitter, Output } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { BaseService } from 'src/service/base-service.component';
+import { Endereco } from 'src/objects/Endereco/Endereco';
+import { ValidateSenha } from 'src/validators/validators-form';
+import { UsuarioRequest } from 'src/objects/Usuario/UsuarioRequest';
+import { UsuarioResponse } from 'src/objects/Usuario/UsuarioResponse';
 
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
   styleUrls: ['./cadastro.component.css'],
+  providers: [
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: {showError: true},
+    },
+  ],
 })
 export class CadastroComponent{
-  loginFormGroup: FormGroup;
-  UserRegisterFormGroup: FormGroup;
-  loading: boolean;
-  submitLogin: boolean;
-  submitRegister: boolean;
+  //Variaveis operacionais
+  loading: boolean = false;
+  submit: boolean = false;
+  hide = true;
+  request!: UsuarioRequest; 
 
-  constructor(private formBuilder: FormBuilder,private response: BaseService,private toastr: ToastrService,
-    private router: Router) {
-    this.loading = false;
-    this.submitLogin = false;
-    this.submitRegister = false;
+  //Formulário
+  PerfilFormGroup = this._formBuilder.group({
+    nome: [undefined, Validators.required],
+    telefone: [undefined, [Validators.required,Validators.minLength(11)]],
+    cpf: [undefined, [Validators.required,Validators.minLength(11)]],
+    dataNascimento: [undefined, [Validators.required,Validators.minLength(8)]],
+  });
 
-    this.loginFormGroup = this.formBuilder.group({
-        emailLogin: ['', Validators.required],
-        senhaLogin: ['', Validators.required]
-    });
+  EnderecoFormGroup = this._formBuilder.group({
+    cep: ['', Validators.minLength(8)],
+    cidade: [''],
+    bairro: [''],
+    rua: [''],
+    numero: ['']
+  });
 
-    this.UserRegisterFormGroup = this.formBuilder.group({
-      email: ['', [Validators.required,Validators.email]],
-      nome: ['', Validators.required],
-      CPF: ['', [Validators.required,Validators.minLength(11)]],
-      senha: ['', [Validators.required]],
-    });
+  AcessoFormGroup = this._formBuilder.group({
+    senha: ['', [Validators.required,ValidateSenha]],
+    email: ['',[Validators.required,Validators.email]],
+    termo: [false]
+  });
+
+  constructor(private _formBuilder: FormBuilder,private response: BaseService,
+    private toastr: ToastrService,private router: Router,private route: ActivatedRoute) {
   }
 
-  RegisterUsuario = (form:FormGroup) =>{
-    if(this.UserRegisterFormGroup.invalid){
-      this.submitRegister = true;
+  PesquisarEndereco = () => {
+    let cepValue = this.EnderecoFormGroup.get('cep'); 
+    this.loading = true;
+
+    if(cepValue?.invalid){
+      this.loading = false;
+      this.toastr.error('<small>Preencha o campo cep corretamente!</small>', 'Mensagem:');
       return;
     }
 
+    this.response.Get("Utils","ConsultarEnderecoCep/" + cepValue?.value).subscribe(
+      (response: Endereco) =>{        
+        if(response.sucesso){
+          this.EnderecoFormGroup.get('cidade')?.setValue(response.data.cidade);
+          this.EnderecoFormGroup.get('rua')?.setValue(response.data.rua);
+          this.EnderecoFormGroup.get('bairro')?.setValue(response.data.bairro);
+        }
+        else{
+          this.toastr.error(response.mensagem, 'Mensagem:');
+        }
+        this.loading = false;
+      }
+    );
+  };
+
+  Salvar = () =>{
+    this.submit = true;
     this.loading = true;
-    this.response.Post("Usuario","CadastroInicial",form.value).subscribe(
-      (response: any) =>{        
+
+    if(this.PerfilFormGroup.invalid || this.AcessoFormGroup.invalid || this.EnderecoFormGroup.invalid){
+      this.loading = false;
+      this.toastr.error('<small>Preencha os campos corretamente no formulário!</small>', 'Mensagem:');
+      return;
+    }
+
+    if(this.AcessoFormGroup.get('termo')?.value == false){
+      this.loading = false;
+      this.toastr.error('<small>Para prosseguir com o cadastro aceite os termos!</small>', 'Mensagem:');
+      return;
+    }
+
+    this.request = {
+      Nome: this.PerfilFormGroup.get('nome')?.value,
+      Telefone: this.PerfilFormGroup.get('telefone')?.value,
+      Cpf: this.PerfilFormGroup.get('cpf')?.value,
+      DataNascimento: this.PerfilFormGroup.get('dataNascimento')?.value,
+      Cep: this.EnderecoFormGroup.get('cep')?.value,
+      Cidade: this.EnderecoFormGroup.get('cidade')?.value,
+      Bairro: this.EnderecoFormGroup.get('bairro')?.value,
+      Rua: this.EnderecoFormGroup.get('rua')?.value,
+      Numero: this.EnderecoFormGroup.get('numero')?.value,
+      Senha: this.AcessoFormGroup.get('senha')?.value,
+      Email: this.AcessoFormGroup.get('email')?.value,
+    }
+
+    this.response.Post("Usuario","Cadastrar",this.request).subscribe(
+      (response: UsuarioResponse) =>{        
         if(response.sucesso){
           window.localStorage.setItem('NomeUsuario',response.data.nome);
           window.localStorage.setItem('IdUsuario',response.data.idUsuario);
+          window.localStorage.setItem('Email',response.data.email);
+          window.localStorage.setItem('CPF',response.data.cpf);
           window.localStorage.setItem('Token',response.data.sessionKey.acess_token);
-          this.toastr.success('<small> Seja bem vindo <br>' + response.data.nome, 'Mensagem:');   
-          this.router.navigate(['/', 'main'])        
-        }else
-        {
-          this.toastr.error('<small>' + response.mensagem + '</small>', 'Mensagem');
+          this.response.UsuarioLogado(true);
+          this.toastr.success(response.mensagem, 'Mensagem:');
+          this.router.navigateByUrl('/')
+        }else{
+          this.toastr.error(response.mensagem, 'Mensagem:');
         }
         this.loading = false;
       }
     );
   }
-    
-  Login = (form:FormGroup) =>{
-    if(this.loginFormGroup.invalid){
-      this.submitLogin = true;
-      return;
-    }
-
-    this.loading = true;
-    this.response.Post("Auth","Login",form.value).subscribe(
-      (response: any) =>{        
-        if(response.sucesso){
-          window.localStorage.setItem('NomeUsuario',response.data.nome);
-          window.localStorage.setItem('IdUsuario',response.data.idUsuario);
-          window.localStorage.setItem('Token',response.data.sessionKey.acess_token);
-          this.toastr.success('<small>' + 'Seja bem vindo de volta: <br>' + response.data.nome + '<small>', 'Mensagem:');   
-          this.router.navigate(['/', 'main'])
-        }
-        else
-        {
-          this.toastr.error('<small>' + response.mensagem + '</small>', 'Mensagem:');
-        }
-        this.loading = false;
-      }
-    );
-  }
-
-
-  //Campo Senha
-  ActiveEyePasswordLogin: boolean = false;
-  ActiveEyePasswordRegister: boolean = false;
-
-  EyePasswordRegister = (): void => {
-    this.ActiveEyePasswordRegister = !this.ActiveEyePasswordRegister;
-  };
-
-  EyePasswordLogin = (): void => {
-    this.ActiveEyePasswordLogin = !this.ActiveEyePasswordLogin;
-  };
 }

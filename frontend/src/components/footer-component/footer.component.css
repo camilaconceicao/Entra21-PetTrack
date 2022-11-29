@@ -1,0 +1,22 @@
+.btn{
+  color: #ffffff;
+  background-color: #eb6969;
+  padding: 8px 50px;
+  min-width: 30vh !important;
+  border-radius: 30px;
+  --bs-btn-hover-color: var(--bs-btn-hover-border-color);
+  --bs-btn-hover-bg: #ffffff;
+  --bs-btn-hover-border-color: #eb6969;
+  font-size: medium;
+}
+
+.btn:hover{
+  transition: 0.5s;
+  background-color: #ffffff;
+  color: #eb6969;
+}
+
+.p-3{
+  color: #ffffff00;
+  background-color: #ffffff00;
+}

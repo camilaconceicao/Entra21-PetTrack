@@ -1,0 +1,14 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Bungee+Spice&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Bungee+Spice&display=swap');
+
+.text-header{
+    font-family: 'Bree Serif', serif;
+    font-size: x-large;
+    color: rgba(0, 0, 0, 0.89);
+    text-shadow: 1pt 1pt 2pt rgba(177, 177, 177, 0.945)
+}
+
+.locale-text{
+    font-size: small;
+}
