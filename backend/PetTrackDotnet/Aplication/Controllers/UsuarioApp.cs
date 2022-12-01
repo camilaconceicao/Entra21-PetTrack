@@ -1,6 +1,7 @@
 ﻿using Aplication.Interfaces;
+using Aplication.Models.Request.Login;
 using Aplication.Models.Request.Usuario;
-using Aplication.Utils.Obj;
+using Aplication.Models.Response;
 using Aplication.Validators.Usuario;
 using AutoMapper;
 using Domain.Interfaces;
@@ -12,14 +13,14 @@ public class UsuarioApp : IUsuarioApp
     protected readonly IUsuarioService Service;
     protected readonly IMapper Mapper;
     protected readonly IUsuarioValidator Validation;
-    protected readonly IUtilsService UtilsService;
-
-    public UsuarioApp(IUsuarioService service,IMapper mapper,IUsuarioValidator validation, IUtilsService utilsService)
+    protected readonly IAuthApp Auth;
+    
+    public UsuarioApp(IUsuarioService service,IMapper mapper,IUsuarioValidator validation, IAuthApp auth)
     {
         Service = service;
         Mapper = mapper;
         Validation = validation;
-        UtilsService = utilsService;
+        Auth = auth;
     }
 
     public List<Usuario> GetAll()
@@ -37,55 +38,40 @@ public class UsuarioApp : IUsuarioApp
         return Service.GetById(id);
     }
 
-    public ValidationResult Cadastrar(UsuarioRequest request)
+    public UsuarioCadastroResponse Cadastrar(UsuarioRequest request)
     {
-        var validation = Validation.ValidaçãoCadastro(request);
-        var lUsuario = Service.GetAllList();
+        var retorno = new UsuarioCadastroResponse()
+        {
+            Validators = Validation.ValidaçãoCadastro(request)
+        };
 
-        if (lUsuario.Any(x => x.Email == request.Email && x.IdUsuario != request.IdUsuario))
-            validation.LErrors.Add("Email já vinculado a outro usuário");
+        var requestLogin = new LoginRequest()
+        {
+            EmailLogin = request.Email ?? string.Empty,
+            SenhaLogin = request.Senha
+        };
+        
+        var lUsuario = Service.GetAllQuery();
 
-        if(validation.IsValid())
+        if (lUsuario.Any(x => x.Email == request.Email))
+            retorno.Validators.LErrors.Add("Email já vinculado a outro usuário");
+
+        if(retorno.Validators.IsValid())
         {
             var usuario = Mapper.Map<UsuarioRequest,Usuario>(request);
             Service.Cadastrar(usuario);
+            
+            retorno.Autenticacao = Auth.Login(requestLogin);
         }
 
-        return validation;
-    }
-
-    public ValidationResult CadastroInicial(UsuarioRegistroInicialRequest request)
-    {
-        var validation = Validation.ValidaçãoCadastroInicial(request);
-        var lUsuario = Service.GetAllList();
-
-        if (lUsuario.Any(x => x.Email == request.Email))
-            validation.LErrors.Add("Email já vinculado a outro usuário");
-        
-        if(validation.IsValid())
-        {
-            var usuario = Mapper.Map<UsuarioRegistroInicialRequest,Usuario>(request);
-            Service.Cadastrar(usuario);
-        }
-
-        return validation;
-    }
-
-    public void CadastrarListaUsuario(List<Usuario> lUsuario)
-    {
-        Service.CadastrarListaUsuario(lUsuario);
+        return retorno;
     }
     
     public void Editar(Usuario usuario)
     {
         Service.Editar(usuario);
     }
-    
-    public void EditarListaUsuario(List<Usuario> lUsuario)
-    {
-        Service.EditarListaUsuario(lUsuario);
-    }
-    
+
     public void DeleteById(int id)
     {
         Service.DeleteById(id);

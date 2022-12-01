@@ -119,4 +119,8 @@ export class PetCrudComponent {
         }
       );
     }
+
+    Teste= () =>{
+      alert(this.PerfilFormGroup.get)
+    }
 }

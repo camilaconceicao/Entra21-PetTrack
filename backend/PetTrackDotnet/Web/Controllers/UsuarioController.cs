@@ -20,7 +20,6 @@ public class UsuarioController : DefaultController
     }
 
     [HttpPost]
-    [Authorize]
     [Route("Cadastrar")]
     public JsonResult Cadastrar(UsuarioRequest request)
     {
@@ -28,30 +27,11 @@ public class UsuarioController : DefaultController
         {
             var cadastro = App.Cadastrar(request);
             
-            if(cadastro.IsValid())
-                return ResponderSucesso("Usuário cadastrado com sucesso!");
+            if(cadastro.Validators.IsValid())
+                return ResponderSucesso("Cadastro realizado com sucesso!",cadastro.Autenticacao);
             
-            return ResponderErro(cadastro.LErrors.FirstOrDefault());
+            return ResponderErro(cadastro.Validators.LErrors.FirstOrDefault());
 
-        }
-        catch (Exception e)
-        {
-            return ResponderErro(e.Message);
-        }
-    }
-    
-    [HttpPost]
-    [Route("CadastroInicial")]
-    public JsonResult CadastroInicial(UsuarioRegistroInicialRequest request)
-    {
-        try
-        {
-            var cadastro = App.CadastroInicial(request);
-
-            if (!cadastro.IsValid())
-                return ResponderErro(cadastro.LErrors.FirstOrDefault());
-                
-            return ResponderSucesso("Usuário cadastrado com sucesso!");
         }
         catch (Exception e)
         {
@@ -93,22 +73,7 @@ public class UsuarioController : DefaultController
             return ResponderErro(e.Message);
         }
     }
-
-    [HttpPost]
-    [Authorize]
-    [Route("CadastrarListaUsuario")]
-    public JsonResult CadastrarListaUsuario(List<Usuario> lUsuario)
-    {
-        try
-        {
-            App.CadastrarListaUsuario(lUsuario);
-            return ResponderSucesso("usuários cadastrado com sucesso!");
-        }
-        catch (Exception e)
-        {
-            return ResponderErro(e.Message);
-        }
-    }
+    
     
     [HttpPost]
     [Authorize]
@@ -125,23 +90,7 @@ public class UsuarioController : DefaultController
             return ResponderErro(e.Message);
         }
     }
-    
-    [HttpPost]
-    [Authorize]
-    [Route("EditarListaUsuario")]
-    public JsonResult EditarListaUsuario(List<Usuario> lUsuario)
-    {
-        try
-        {
-            App.EditarListaUsuario(lUsuario);
-            return ResponderSucesso("Usuário ");
-        }
-        catch (Exception e)
-        {
-            return ResponderErro(e.Message);
-        }
-    }
-    
+
     [HttpPost]
     [Authorize]
     [Route("DeleteById")]

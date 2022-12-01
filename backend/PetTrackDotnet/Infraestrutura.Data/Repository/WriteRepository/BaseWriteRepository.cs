@@ -17,6 +17,14 @@ public class BaseWriteRepository <T> : IBaseWriteRepository<T> where T : class
         _context.Set<T>().Add(entidade);
         _context.SaveChanges();
     }
+    
+    public T AddWithReturn(T entidade)
+    {
+        _context.Set<T>().Add(entidade);
+        _context.SaveChanges();
+
+        return entidade;
+    }
 
     public void AddRange(List<T> lEntidade)
     {

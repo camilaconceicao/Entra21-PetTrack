@@ -40,7 +40,7 @@ export class CadastroComponent{
     cidade: [''],
     bairro: [''],
     rua: [''],
-    numero: ['']
+    numero: [undefined]
   });
 
   AcessoFormGroup = this._formBuilder.group({

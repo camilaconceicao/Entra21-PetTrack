@@ -9,8 +9,7 @@ public interface IUsuarioService
     public List<Usuario> GetAllList();
     public IQueryable<Usuario> GetAllQuery();
     public void Cadastrar(Usuario usuarioEntity);
-    public void CadastrarListaUsuario(List<Usuario> lUsuario);
     public void Editar(Usuario usuario);
-    public void EditarListaUsuario(List<Usuario> lUsuario);
     public void DeleteById(int id);
+    public Usuario CadastrarComRetorno(Usuario usuario);
 }

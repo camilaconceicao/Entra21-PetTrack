@@ -13,14 +13,16 @@ public class Mapping : Profile
     {
         #region Usuario
         CreateMap<UsuarioRequest, Usuario>()
-            .ForMember(dst => dst.Senha,
-                map => map.MapFrom(src => new HashCripytograph().Hash(src.Senha)));
-        
-        CreateMap<UsuarioRegistroInicialRequest, Usuario>()
-            .ForMember(dst => dst.Senha,
-                map => map.MapFrom(src => new HashCripytograph().Hash(src.Senha)));
+                    .ForMember(dst => dst.Senha,
+                        map => map.MapFrom(src => new HashCripytograph().Hash(src.Senha)));
+
+        CreateMap<Usuario, LoginResponse>()
+            .ForMember(dst => dst.Autenticado,
+                map => map.MapFrom(src => true));
+
         #endregion
 
+        #region Endereço
         CreateMap<EnderecoExternalReponse,EnderecoResponse>()
             .ForMember(dst => dst.Bairro,
                 map => map.MapFrom(src => src.bairro))
@@ -30,5 +32,7 @@ public class Mapping : Profile
                 map => map.MapFrom(src => src.uf))
             .ForMember(dst => dst.Rua,
                 map => map.MapFrom(src => src.logradouro));
+
+        #endregion
     }
 }

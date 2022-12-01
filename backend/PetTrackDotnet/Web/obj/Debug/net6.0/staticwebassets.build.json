@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "Hash": "BM1AY4PTmLKOGTy0ATqkdHA9NHwCbyJeKNB8wpDVSsA=",
+  "Hash": "3je1/Y949psJM0Sp2HHLc1NUvToF8lknmhCJdpjk/L8=",
   "Source": "Web",
   "BasePath": "_content/Web",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "C:\\Source\\ProjetoPadrao\\ProjetoPadraoDotnetCore\\Aplication\\Aplication.csproj",
+      "Identity": "C:\\Source\\PetTrack\\Entra21-PetTrack\\backend\\PetTrackDotnet\\Aplication\\Aplication.csproj",
       "Version": 2,
       "Source": "Aplication",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
@@ -18,7 +18,7 @@
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier"
     },
     {
-      "Identity": "C:\\Source\\ProjetoPadrao\\ProjetoPadraoDotnetCore\\Domain\\Domain.csproj",
+      "Identity": "C:\\Source\\PetTrack\\Entra21-PetTrack\\backend\\PetTrackDotnet\\Domain\\Domain.csproj",
       "Version": 2,
       "Source": "Domain",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
@@ -29,7 +29,7 @@
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier"
     },
     {
-      "Identity": "C:\\Source\\ProjetoPadrao\\ProjetoPadraoDotnetCore\\Infraestrutura.CrossCutting\\Infraestrutura.CrossCutting.csproj",
+      "Identity": "C:\\Source\\PetTrack\\Entra21-PetTrack\\backend\\PetTrackDotnet\\Infraestrutura.CrossCutting\\Infraestrutura.CrossCutting.csproj",
       "Version": 2,
       "Source": "Infraestrutura.CrossCutting",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
@@ -40,7 +40,7 @@
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier"
     },
     {
-      "Identity": "C:\\Source\\ProjetoPadrao\\ProjetoPadraoDotnetCore\\Infraestrutura.Data\\Infraestrutura.Data.csproj",
+      "Identity": "C:\\Source\\PetTrack\\Entra21-PetTrack\\backend\\PetTrackDotnet\\Infraestrutura.Data\\Infraestrutura.Data.csproj",
       "Version": 2,
       "Source": "Infraestrutura.Data",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
@@ -51,7 +51,7 @@
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier"
     },
     {
-      "Identity": "C:\\Source\\ProjetoPadrao\\ProjetoPadraoDotnetCore\\Infraestrutura.Reports\\Infraestrutura.Reports.csproj",
+      "Identity": "C:\\Source\\PetTrack\\Entra21-PetTrack\\backend\\PetTrackDotnet\\Infraestrutura.Reports\\Infraestrutura.Reports.csproj",
       "Version": 2,
       "Source": "Infraestrutura.Reports",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",

@@ -1,6 +1,4 @@
-﻿using Infraestrutura.Enum;
-
-namespace Infraestrutura.Entity;
+﻿namespace Infraestrutura.Entity;
 
 public class Usuario
 {
@@ -10,22 +8,10 @@ public class Usuario
     public string Cpf { get; set; } = null!;
     public string? Telefone { get; set; }
     public string Senha { get; set; } = null!;
-    public bool PerfilAdministrador { get; set; }
-    public int Dedicacao { get; set; }
     public string? Cep { get; set; } 
-    public string? Estado { get; set; } 
     public string? Cidade { get; set; } 
-    public string? Pais { get; set; } 
     public string? Rua { get; set; } 
     public string? Bairro { get; set; } 
     public int? Numero { get; set; }
-    public string? NomeMae { get; set; } 
-    public string? NomePai { get; set; } 
-    public string? Observacao { get; set; } 
-    public string? Rg { get; set; } 
     public DateTime? DataNascimento { get; set; }
-    public EGenero Genero { get; set; }
-    
-    public int IdUsuarioCadastro { get; set; }
-    public int? IdProfissao { get; set; }
 }

@@ -19,7 +19,7 @@
                     <div class="row mt-2">
                       <mat-form-field appearance="outline">
                         <mat-label>Nome do Pet:</mat-label>
-                        <input matInput placeholder="Insira seu nome" formControlName="nome" maxlength="100">
+                        <input matInput placeholder="Insira o nome do pet" formControlName="nome" maxlength="100">
                         <mat-hint>
                           <text-error-message  
                           *ngIf="PerfilFormGroup.get('nome')?.errors?.['required'] && (PerfilFormGroup.get('nome')?.touched || submit)"
@@ -30,52 +30,34 @@
                     </div>
                     <div class="row mt-2">
                       <mat-form-field appearance="outline">
-                        <mat-label>Telefone:</mat-label>
-                        <input matInput placeholder="Insira seu telefone" formControlName="telefone" mask="(00) 00000-0000" >
+                        <mat-label>Idade do Pet:</mat-label>
+                        <input matInput placeholder="Insira a idade do pet" formControlName="idade" mask="00" maxlength="2">
                         <mat-hint>
                           <text-error-message  
-                          *ngIf="PerfilFormGroup.get('telefone')?.errors?.['required'] && (PerfilFormGroup.get('telefone')?.touched || submit)"
-                          text="Este campo é obrigatório">
-                          </text-error-message>
-                          <text-error-message  
-                          *ngIf="PerfilFormGroup.get('telefone')?.errors?.['minlength'] && (PerfilFormGroup.get('telefone')?.touched || submit)"
-                          text="Campo inválido">                          
+                          *ngIf="PerfilFormGroup.get('idade')?.errors?.['required'] && (PerfilFormGroup.get('idade')?.touched || submit)"
+                          text="Este campo é obrigatório">                          
                           </text-error-message>
                         </mat-hint>
                       </mat-form-field>
                     </div>
                     <div class="row mt-2">
                       <mat-form-field appearance="outline">
-                        <mat-label>CPF:</mat-label>
-                        <input matInput placeholder="Insira seu CPF" formControlName="cpf" mask="000.000.000-00">
+                        <mat-label>Raça do Pet:</mat-label>
+                        <input matInput placeholder="Insira a raça do Pet" formControlName="raca">
                         <mat-hint>
                           <text-error-message  
-                          *ngIf="PerfilFormGroup.get('cpf')?.errors?.['required'] && (PerfilFormGroup.get('cpf')?.touched || submit)"
+                          *ngIf="PerfilFormGroup.get('raca')?.errors?.['required'] && (PerfilFormGroup.get('raca')?.touched || submit)"
                           text="Este campo é obrigatório">
-                        </text-error-message>
-                        <text-error-message  
-                        *ngIf="PerfilFormGroup.get('cpf')?.errors?.['minlength'] && (PerfilFormGroup.get('cpf')?.touched || submit)"
-                        text="Campo inválido">                          
                         </text-error-message>
                         </mat-hint>
                       </mat-form-field>
                     </div>
                     <div class="row mt-2">
                       <mat-form-field appearance="outline">
-                        <mat-label>Data de nascimento:</mat-label>
-                        <input matInput [matDatepicker]="dp3" formControlName="dataNascimento" readonly>
-                        <mat-datepicker-toggle matIconSuffix [for]="dp3"></mat-datepicker-toggle>
-                        <mat-datepicker #dp3 disabled="false"></mat-datepicker>
-                        <mat-hint>
-                          <text-error-message  
-                          *ngIf="PerfilFormGroup.get('dataNascimento')?.errors?.['required'] && (PerfilFormGroup.get('dataNascimento')?.touched || submit)"
-                          text="Este campo é obrigatório">
-                          </text-error-message>
-                          <text-error-message  
-                          *ngIf="PerfilFormGroup.get('dataNascimento')?.errors?.['minlength'] && (PerfilFormGroup.get('dataNascimento')?.touched || submit)"
-                          text="Campo inválido">                          
-                          </text-error-message>
-                        </mat-hint>
+                        <input type="file" formControlName="foto" class="absolute top-0 z-10 h-full w-full cursor-pointer opacity-0" accept=".jpeg,.jpg,.png"/>
+                        <mat-label>Foto do pet</mat-label>
+                        <input matInput cdkFocusInitial class="z-0"/>
+                        <mat-icon matSuffix class="mr-2">cloud_upload</mat-icon>
                       </mat-form-field>
                     </div>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">

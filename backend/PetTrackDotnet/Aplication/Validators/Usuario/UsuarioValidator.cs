@@ -12,50 +12,24 @@ public class UsuarioValidator : IUsuarioValidator
         Util = utilDocument;
     }
 
-    public ValidationResult ValidaçãoCadastroInicial(UsuarioRegistroInicialRequest request)
-    {
-        var validation = new ValidationResult();
-        
-        if(string.IsNullOrEmpty(request.Email))
-            validation.LErrors.Add("Campo Email é obrigatório!");
-        if(string.IsNullOrEmpty(request.Nome))
-            validation.LErrors.Add("Campo nome é obrigatório!");
-        if(string.IsNullOrEmpty(request.Senha))
-            validation.LErrors.Add("Campo senha é obrigatório!");
-        if(string.IsNullOrEmpty(request.CPF))
-            validation.LErrors.Add("Campo CPF é obrigatório!");
-        if(!Util.ValidatorCpf(request.CPF))
-            validation.LErrors.Add("Campo CPF inválido!");
-        
-        return validation;    
-    }
-    
     public ValidationResult ValidaçãoCadastro(UsuarioRequest request)
     {
         var validation = new ValidationResult();
         
         if(string.IsNullOrEmpty(request.Email))
             validation.LErrors.Add("Campo Email é obrigatório!");
+        if(string.IsNullOrEmpty(request.Telefone))
+            validation.LErrors.Add("Campo Email é obrigatório!");
         if(string.IsNullOrEmpty(request.Nome))
             validation.LErrors.Add("Campo nome é obrigatório!");
-        if(string.IsNullOrEmpty(request.NomeMae))
-            validation.LErrors.Add("Campo noma da mãe é obrigatório!");
         if(string.IsNullOrEmpty(request.Cpf))
             validation.LErrors.Add("Campo CPF é obrigatório!");
+        if(!Util.ValidatorCpf(request.Cpf ?? string.Empty))
+            validation.LErrors.Add("Campo CPF inválido!");
         if(!request.DataNascimento.HasValue)
             validation.LErrors.Add("Campo data de nascimento é obrigatório!");
-        if(string.IsNullOrEmpty(request.Cep))
-            validation.LErrors.Add("Campo cep obrigatório!");
-        if(string.IsNullOrEmpty(request.Bairro))
-            validation.LErrors.Add("Campo bairro obrigatório!");
-        if(string.IsNullOrEmpty(request.Cidade))
-            validation.LErrors.Add("Campo cidade obrigatório!");
-        if(string.IsNullOrEmpty(request.Estado))
-            validation.LErrors.Add("Campo estado obrigatório!");
-        if(string.IsNullOrEmpty(request.Rua))
-            validation.LErrors.Add("Campo rua obrigatório!");
-        if(request.Dedicacao == 0)
-            validation.LErrors.Add("Campo deve ser maior que 0!");
+        if(string.IsNullOrEmpty(request.Senha))
+            validation.LErrors.Add("Campo senha é obrigatório!");
 
         return validation;    
     }

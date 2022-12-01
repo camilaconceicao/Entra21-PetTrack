@@ -44,7 +44,7 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("PetTrack"));
+var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("PetTrackDotnetCore"));
 builder.Services.AddAuthentication(authOptions =>
 {
     authOptions.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

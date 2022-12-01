@@ -34,7 +34,7 @@ public class AuthController : DefaultController
             if (!retorno.Autenticado)
                 return ResponderErro("Usuário ou senha inválido!");
 
-            return ResponderSucesso(retorno);
+            return ResponderSucesso("Seja bem vindo de volta " + retorno.Nome + "!",retorno);
         }
         catch (Exception e)
         {

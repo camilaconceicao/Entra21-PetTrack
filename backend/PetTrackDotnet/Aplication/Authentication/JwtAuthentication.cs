@@ -15,7 +15,7 @@ public class JwtAuthentication : IJwtTokenAuthentication
         };
 
         var expires = DateTime.Now.AddHours(1);			
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("PetTrack"));
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("PetTrackDotnetCore"));
         var tokenData = new JwtSecurityToken(			
             signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature),
             expires: expires,
