@@ -12,6 +12,7 @@ import { TipoComponent } from './app/tipo/tipo.component';
 import { MapaComponent } from './app/mapa/mapa.component';
 import { PetGridComponent } from './app/pet-crud/grid/pet-grid.component';
 import { PetCrudComponent } from './app/pet-crud/crud/pet-crud.component';
+import { PerfilComponent } from './app/perfil/perfil.component';
 
 //Definir as rotas:
 const routes: Routes = [
@@ -26,6 +27,8 @@ const routes: Routes = [
   { path: 'tipo', component: TipoComponent},
   { path: 'mapa', component: MapaComponent},
   { path: 'cadastros-pet/novo-pet', component: PetCrudComponent},
+  { path: 'cadastros-pet', component: PetGridComponent},
+  { path: 'perfil', component: PerfilComponent}
   { path: 'editar-pet/:id', component: PetCrudComponent},
   { path: 'cadastros-pet', component: PetGridComponent}
 ];
