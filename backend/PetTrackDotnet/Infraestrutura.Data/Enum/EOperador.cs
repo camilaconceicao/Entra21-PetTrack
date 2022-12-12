@@ -2,10 +2,10 @@
 
 namespace Infraestrutura.Enum;
 
-public enum Operador
+public enum EOperador
 {
     [Description("Asc")]
     Ascending = 0,
     [Description("Desc")]
-    Descending = 1,
+    Descending = 1
 }

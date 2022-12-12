@@ -50,9 +50,10 @@
       <Compile Remove="Mapping\ProfissaoMapping.cs" />
       <Compile Remove="Mapping\ModuloMapping.cs" />
       <Compile Remove="Mapping\MenuMapping.cs" />
-      <Compile Remove="Enum\EOperador.cs" />
-      <Compile Remove="Enum\EOperadorFilter.cs" />
-      <Compile Remove="Enum\ETypeFilter.cs" />
+      <Compile Remove="Migrations\20221127162308_InitialMigration.cs" />
+      <Compile Remove="Migrations\20221127162308_InitialMigration.Designer.cs" />
+      <Compile Remove="Migrations\20221211173824_Initial.cs" />
+      <Compile Remove="Migrations\20221211173824_Initial.Designer.cs" />
     </ItemGroup>
 
     <ItemGroup>

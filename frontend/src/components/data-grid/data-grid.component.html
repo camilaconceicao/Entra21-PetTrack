@@ -1,7 +1,7 @@
-<div class="d-flex justify-content-center h-100 text-danger" *ngIf="!loading">
+<div class="d-flex justify-content-center h-100 text-danger" *ngIf="loading">
   <spinner-component></spinner-component>
 </div>
-<div *ngIf="loading" class="table-responsive toggle-history">  
+<div *ngIf="!loading" class="table-responsive toggle-history">  
   <table mat-table matSort (matSortChange)="ConsultarGrid(undefined,$event,undefined)" [dataSource]="data">
     <!-- Cabeçalho e corpo -->
     <ng-container *ngFor="let item of gridOptions.Colunas">
@@ -14,12 +14,12 @@
           <div *ngIf="item.ActionButton != undefined">
             <div [class]="item.ClassCell" [style]="item.StyleCell" *ngFor="let action of item.ActionButton">
               <button 
+              mat-icon-button 
+              [color]="action.ParametrosAction.ClassProperty"
               data-bs-dismiss="modal"
-              [class]="action.ParametrosAction.ClassProperty" 
+              [class]="" 
               *ngIf="action.TypeButton == 1" 
-              [innerHTML]="action.ParametrosAction.Conteudo" 
               (click)="ActionButton(action,data)"
-
               [hidden]="action.ParametrosAction.Hidden.Hidden == undefined
               ? data[action.ParametrosAction.Hidden.PropertyHidden]
               : action.ParametrosAction.Hidden.Hidden"
@@ -30,6 +30,7 @@
 
               [matTooltip]="action.ParametrosAction.Tooltip"
               matTooltipPosition="right">
+              <mat-icon>{{action.ParametrosAction.Conteudo}}</mat-icon>
               </button>
               <a 
               [hidden]="action.ParametrosAction.Hidden"
@@ -103,7 +104,7 @@
               </mat-form-field>
             </div>
             <div class="group-input-search">
-              <mat-form-field *ngIf="item.Filter && item.Type == 'enum'">
+              <mat-form-field appearance="outline" *ngIf="item.Filter && item.Type == 'enum'">
                 <mat-select (selectionChange)="FiltrarGrid({Value:$event.value,Type:item.Type,Field:item.ServerField,EOperadorFilter: 3})">
                   <mat-option>Nenhum</mat-option>
                   <mat-option *ngFor="let option of item.EnumOptions" [value]="option.Value">{{option.Description}}</mat-option>

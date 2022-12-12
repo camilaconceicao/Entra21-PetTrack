@@ -1,76 +1,35 @@
 <main>
-
-    <section class="py-5 text-center container">
-      <div class="row py-lg-5">
-        <div class="col-lg-6 col-md-8 mx-auto">
-          <h1 class="fw-light-bold">Adota Pet</h1>
-          <p class="lead text-muted">Com essa função, vocês conseguem postar foto do seu animal que fugiu, última 
-            localização com um raio aproximado de onde ele possa estar, nossa comunidade fará o resto para tentar te ajudar!</p>
-        </div>
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <spinner-component *ngIf="loading == true" class="d-flex justify-content-center"></spinner-component>
+      <div class="col-lg-6 col-md-8 mx-auto" [hidden]="loading">
+        <h1 class="fw-light-bold">Adota Pet</h1>
+        <p class="lead text-muted">Com essa função, vocês conseguem postar foto do seu animal que fugiu, última 
+          localização com um raio aproximado de onde ele possa estar, nossa comunidade fará o resto para tentar te ajudar!</p>
       </div>
-    </section>
-  
-    <div class="album py-5 bg-white">
-      <div class="container">
-  
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          <div class="col">
-            <div class="card shadow-sm">
-              <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="assets\images\dog_caramelo.jpg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Ong2</title>
-              <div class="card-body">
-                <h5 class="card-title">Caramelo</h5>
-                <p class="card-text">Porte médio<br>
-                  Idade aproximada 2 anos<br>
-                  "Dócil, gosta de carinhos e já possui algumas vacinas"<br> <br>
-                </p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Contato</button>
-                  </div>
-                  <small class="text-muted">18h atrás</small>
+    </div>
+  </section>
+  <div class="album py-5 bg-white">
+    <div class="container">  
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col" *ngFor="let item of lPetz">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" [src]="item.fotoBase64" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Ong2</title>
+            <div class="card-body">
+              <h5 class="card-title">{{item.nome}}</h5>
+              <p class="card-text"><b>Porte</b>: {{item.tamanho}}<br>
+                {{item.descricao}}
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Contato</button>
                 </div>
+                <small class="text-muted" matTooltip="Cadastro desde">{{item.dataCadastro}}</small>
               </div>
             </div>
           </div>
-
-          <div class="col">
-            <div class="card shadow-sm">
-              <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="assets\images\cat_simba.jpg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Ong2</title>
-              <div class="card-body">
-                <h5 class="card-title">Simba</h5>
-                <p class="card-text">Filhote<br>
-                  Idade aproximada 3 meses<br>
-                  "Para adoção responsável, possui vacinas. Ainda está na fase de tomar leite"</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Contato</button>
-                  </div>
-                  <small class="text-muted">1d 2h atrás</small>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card shadow-sm">
-              <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="assets\images\dog_scooby.jpg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Ong2</title>
-              <div class="card-body">
-                <h5 class="card-title">Scooby</h5>
-                <p class="card-text">Porte grande<br>
-                  Idade aproximada 3 anos<br>
-                  "Brincalhão, gosta de roer, possui vacinas e necessita de gramado"</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Contato</button>
-                  </div>
-                  <small class="text-muted">16/10/2022</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          
         </div>
       </div>
     </div>
-  
-  </main>
+  </div>
+</main>

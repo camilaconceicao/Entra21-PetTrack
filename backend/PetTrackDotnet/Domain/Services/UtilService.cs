@@ -52,4 +52,37 @@ public class UtilService : IUtilsService
 
         return retorno;
     }
+    
+    public async Task<LatLongExternalReponse> ConsultarLatLongPorCep(string cep)
+    {
+        LatLongExternalReponse retorno;
+        var url = _configuration.GetSection("CepAberto:Link");    
+        var key = _configuration.GetSection("CepAberto:Key");  
+        var value = _configuration.GetSection("CepAberto:Value");  
+
+        var requisicao = await External.SendWebWithHeadersHttp(url.Value + cep,key.Value,value.Value);
+
+        if (requisicao.StatusCode == HttpStatusCode.OK)
+        {
+            if (requisicao.ObjetoJson != null)
+            { 
+                retorno = JsonSerializer.Deserialize<LatLongExternalReponse>(requisicao.ObjetoJson)
+                          ?? new LatLongExternalReponse() { StatusApi = false, StatusCode = requisicao.StatusCode };
+
+                if (string.IsNullOrEmpty(retorno.latitude) || string.IsNullOrEmpty(retorno.longitude))
+                    retorno.StatusApi = false;
+
+                return retorno;
+            }
+            
+        }
+        
+        retorno = JsonSerializer.Deserialize<LatLongExternalReponse>(requisicao.ObjetoJson ?? "")
+                  ?? new LatLongExternalReponse() { StatusApi = false, StatusCode = requisicao.StatusCode };
+        
+        if (string.IsNullOrEmpty(retorno.latitude) || string.IsNullOrEmpty(retorno.longitude))
+            retorno.StatusApi = false;
+
+        return retorno;
+    }
 }

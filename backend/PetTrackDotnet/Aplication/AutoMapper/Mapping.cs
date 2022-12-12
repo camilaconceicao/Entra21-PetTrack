@@ -1,5 +1,9 @@
-﻿using Aplication.Models.Request.Usuario;
+﻿using Aplication.Models.Request.Pet;
+using Aplication.Models.Request.Usuario;
 using Aplication.Models.Response;
+using Aplication.Models.Response.Endereco;
+using Aplication.Models.Response.Login;
+using Aplication.Models.Response.Pet;
 using Aplication.Utils.HashCripytograph;
 using AutoMapper;
 using Domain.DTO.Correios;
@@ -32,6 +36,20 @@ public class Mapping : Profile
                 map => map.MapFrom(src => src.uf))
             .ForMember(dst => dst.Rua,
                 map => map.MapFrom(src => src.logradouro));
+
+        #endregion
+
+        #region Pet
+
+        CreateMap<PetRequest, Pet>()
+            .ForMember(dst => dst.DataCadastro,
+                map => map.MapFrom(src => DateTime.Now));
+       
+        CreateMap<Pet, PetConsultaResponse>()
+            .ForMember(dst => dst.DataCadastro,
+                map => map.MapFrom(src => src.DataCadastro.ToShortDateString()))
+            .ForMember(dst => dst.Tamanho,
+                map => map.MapFrom(src => src.Tamanho.ToString()));
 
         #endregion
     }

@@ -33,4 +33,29 @@ public class ExternalRepository : IExternalRepository
             };
         }
     }
+    
+    public async Task<BaseResponseExternal> SendWebWithHeadersHttp(string url,string key,string value)
+    {
+        try
+        {
+            Http.DefaultRequestHeaders.Add(key,value);
+            var response = await Http.GetAsync(url);
+
+            return new BaseResponseExternal()
+            {
+                Sucesso = true,
+                ObjetoJson = await response.Content.ReadAsStringAsync(),
+                StatusCode = response.StatusCode
+            };
+        }
+        catch (HttpRequestException e)
+        {
+            return new BaseResponseExternal()
+            {
+                Sucesso = true,
+                ObjetoJson = null,
+                StatusCode = e.StatusCode
+            };
+        }
+    }
 }

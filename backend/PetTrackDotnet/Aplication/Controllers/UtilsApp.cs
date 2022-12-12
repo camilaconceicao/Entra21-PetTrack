@@ -1,5 +1,6 @@
 ﻿using Aplication.Interfaces;
 using Aplication.Models.Response;
+using Aplication.Models.Response.Endereco;
 using Aplication.Validators.Utils;
 using AutoMapper;
 using Domain.DTO.Correios;
@@ -30,5 +31,17 @@ public class UtilsApp : IUtilsApp
         var retorno = UtilsService.ConsultarEnderecoCep(cep).Result;
         
         return Mapper.Map<EnderecoExternalReponse,EnderecoResponse>(retorno);
+    }
+    
+    public LatLongResponse ConsultarLatLongPorCep(string cep)
+    {
+        var validation = UtilsValidation.ValidarCep(cep);
+
+        if (!validation.IsValid())
+            return Mapper.Map<LatLongResponse>(validation);
+
+        var retorno = UtilsService.ConsultarLatLongPorCep(cep).Result;
+        
+        return Mapper.Map<LatLongExternalReponse,LatLongResponse>(retorno);
     }
 }

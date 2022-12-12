@@ -1,6 +1,4 @@
 using Aplication.Interfaces;
-
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Web.Controllers.Base;
 
@@ -24,6 +22,25 @@ public class UtilsController : DefaultController
         try
         {
             var retorno = UtilsApp.ConsultarEnderecoCep(cep);
+
+            if (!retorno.IsValid())
+                return ResponderErro("Cep inválido!");
+
+            return ResponderSucesso(retorno);
+        }
+        catch (Exception e)
+        {
+            return ResponderErro(e.Message);
+        }
+    }
+    
+    [HttpGet]
+    [Route("ConsultarLatLongPorCep/{cep}")]
+    public JsonResult ConsultarLatLongPorCep(string cep)
+    {
+        try
+        {
+            var retorno = UtilsApp.ConsultarLatLongPorCep(cep);
 
             if (!retorno.IsValid())
                 return ResponderErro("Cep inválido!");

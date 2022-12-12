@@ -3,6 +3,7 @@ using Aplication.Controllers;
 using Aplication.Interfaces;
 using Aplication.Utils.HashCripytograph;
 using Aplication.Utils.ValidatorDocument;
+using Aplication.Validators.Pet;
 using Aplication.Validators.Usuario;
 using Aplication.Validators.Utils;
 using Domain.Interfaces;
@@ -10,6 +11,7 @@ using Domain.Services;
 using Infraestrutura.DataBaseContext;
 using Infraestrutura.Repository.External;
 using Infraestrutura.Repository.Interface.Base;
+using Infraestrutura.Repository.Interface.Pet;
 using Infraestrutura.Repository.Interface.Usuario;
 using Infraestrutura.Repository.ReadRepository;
 using Infraestrutura.Repository.WriteRepository;
@@ -28,15 +30,18 @@ namespace CrossCutting.IOC
             services.AddSingleton<IConfiguration>(builder.Configuration);
 
             //Validators
+            services.AddTransient<IPetValidator, PetValidator>();
             services.AddTransient<IUsuarioValidator, UsuarioValidator>();
             services.AddTransient<IUtilsValidator,UtilsValidatior>();
 
             //Aplicação
+            services.AddScoped<IPetApp, PetApp>();
             services.AddScoped<IUsuarioApp, UsuarioApp>();
             services.AddScoped<IAuthApp, AuthApp>();
             services.AddScoped<IUtilsApp, UtilsApp>();
 
             //Domínio
+            services.AddScoped<IPetService, PetService>();
             services.AddScoped<IUsuarioService, UsuarioService>();
             services.AddScoped<IUtilsService, UtilService>();
 
@@ -46,6 +51,8 @@ namespace CrossCutting.IOC
             services.AddScoped<IUsuarioReadRepository, UsuarioReadRepository>();
             services.AddScoped<IUsuarioWriteRepository, UsuarioWriteRepository>();
             services.AddScoped<IExternalRepository, ExternalRepository>();
+            services.AddScoped<IPetReadRepository, PetReadRepository>();
+            services.AddScoped<IPetWriteRepository, PetWriteRepository>();
 
             //Context
             services.AddDbContext<Context>(options =>

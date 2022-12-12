@@ -27,6 +27,10 @@ export class BaseService{
         return this.request.post<any>(this.rota + controller + '/' + metodo,objetoEnvio)
     };
 
+    Delete(controller: string,metodo: string){
+        return this.request.delete<any>(this.rota + controller + '/' + metodo)
+    };
+
     UsuarioLogado(bool: boolean | undefined){
         this.logado.emit(bool);
     }

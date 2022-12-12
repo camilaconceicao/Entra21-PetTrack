@@ -17,4 +17,6 @@ public class Context : DbContext
 
     //Injeção dos dataSets
     public DbSet<Usuario> Usuario { get; set; } = null!;
+    public DbSet<Pet> Pet { get; set; } = null!;
+    public DbSet<Ong> Ong { get; set; } = null!;
 }

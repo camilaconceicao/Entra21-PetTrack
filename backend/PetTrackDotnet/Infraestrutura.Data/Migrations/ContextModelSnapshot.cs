@@ -22,6 +22,89 @@ namespace Infraestrutura.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("Infraestrutura.Entity.Pet", b =>
+                {
+                    b.Property<int>("IdPet")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdPet"), 1L, 1);
+
+                    b.Property<string>("Bairro")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Cidade");
+
+                    b.Property<string>("Cep")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Cep");
+
+                    b.Property<string>("Cidade")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Cidade1");
+
+                    b.Property<DateTime>("DataCadastro")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("DataCadastro");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)")
+                        .HasColumnName("Descricao");
+
+                    b.Property<string>("FotoBase64")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("FotoBase64");
+
+                    b.Property<string>("Latitude")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Latitude");
+
+                    b.Property<string>("Longitude")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Longitude");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("Nome");
+
+                    b.Property<string>("Raca")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)")
+                        .HasColumnName("Raca");
+
+                    b.Property<string>("Rua")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Rua");
+
+                    b.Property<int>("Tamanho")
+                        .HasColumnType("int")
+                        .HasColumnName("Tamanho");
+
+                    b.Property<int>("TipoCadastro")
+                        .HasColumnType("int")
+                        .HasColumnName("TipoCadastro");
+
+                    b.Property<int>("UsuarioCadastroId")
+                        .HasColumnType("int")
+                        .HasColumnName("UsuarioCadastroId");
+
+                    b.HasKey("IdPet");
+
+                    b.HasIndex("UsuarioCadastroId");
+
+                    b.ToTable("Pet", (string)null);
+                });
+
             modelBuilder.Entity("Infraestrutura.Entity.Usuario", b =>
                 {
                     b.Property<int>("IdUsuario")
@@ -59,10 +142,6 @@ namespace Infraestrutura.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasColumnName("Email");
 
-                    b.Property<string>("Estado")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Estado");
-
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -88,6 +167,22 @@ namespace Infraestrutura.Migrations
                     b.HasKey("IdUsuario");
 
                     b.ToTable("Usuario", (string)null);
+                });
+
+            modelBuilder.Entity("Infraestrutura.Entity.Pet", b =>
+                {
+                    b.HasOne("Infraestrutura.Entity.Usuario", "Usuario")
+                        .WithMany("LPetz")
+                        .HasForeignKey("UsuarioCadastroId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("Infraestrutura.Entity.Usuario", b =>
+                {
+                    b.Navigation("LPetz");
                 });
 #pragma warning restore 612, 618
         }

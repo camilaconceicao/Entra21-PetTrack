@@ -1,5 +1,5 @@
 ﻿//Criar Migration
-dotnet ef migrations add Initial
+dotnet ef migrations add AddTablePet
 
 //Remover ultimo migration
 dotnet ef migrations remove

@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { DataGridComponent } from 'src/components/data-grid/data-grid.component';
 import { GridService } from 'src/components/data-grid/data-grid.service';
 import { EnumBase } from 'src/enums/EnumBase';
 import { TypeFilter } from 'src/enums/TypeFilter';
 import { GridOptions } from 'src/objects/Grid/GridOptions';
+import { RetornoPadrao } from 'src/objects/RetornoPadrao';
+import { BaseService } from 'src/service/base-service.component';
 
 @Component({
   selector: 'pet-grid-component',
@@ -14,31 +17,30 @@ import { GridOptions } from 'src/objects/Grid/GridOptions';
 export class PetGridComponent {
   gridOptions: GridOptions;
   optionsEnumPerfil: Array<EnumBase>;
+  loading: boolean = false;
   
-  constructor(private gridService: GridService,public gridComponent: DataGridComponent,
-    private router: Router){  
+  constructor(private response: BaseService,private gridService: GridService,
+    private toastr: ToastrService,private router: Router){  
     this.optionsEnumPerfil = [
       {
-        Description: 'Administrador',
+        Description: 'Doação',
         Value: '0'
       },
       {
-        Description: 'Comum',
+        Description: 'Perdido',
         Value: '1'
       }
     ];
 
     this.gridOptions = {
         Parametros: {
-          Controller: 'Usuario',
-          Metodo: 'ConsultarGridUsuario',
-          PaginatorSizeOptions: [10,15,20],
-          PageSize: 10,
-          MultiModal: true,
+          Controller: 'Pet',
+          Metodo: 'ConsultarGridPet',
+          PaginatorSizeOptions: [5,10],
+          PageSize: 5,
+          MultiModal: false,
           Modal: undefined,
-          Params: {
-            Teste: 1
-          }
+          Params: undefined
         },
         Colunas: [{
             Field: 'Action',
@@ -60,8 +62,8 @@ export class PetGridComponent {
                 TypeActionButton: 0,
                 TypeButton: 1,
                 ParametrosAction: {
-                  Conteudo: '<i class="bi bi-pencil-square"></i>',
-                  ClassProperty: 'btn btn-info btn-sm',
+                  Conteudo: 'edit',
+                  ClassProperty: 'Basic',
                   Disabled: {
                     Disabled: undefined,
                     PropertyDisabled: ''
@@ -73,6 +75,25 @@ export class PetGridComponent {
                   Target: undefined,
                   Href: undefined,
                   Tooltip: 'Editar'
+                }
+              },
+              {
+                TypeActionButton: 2,
+                TypeButton: 1,
+                ParametrosAction: {
+                  Conteudo: 'delete_forever',
+                  ClassProperty: 'warn',
+                  Disabled: {
+                    Disabled: undefined,
+                    PropertyDisabled: ''
+                  },
+                  Hidden: {
+                    Hidden: false,
+                    PropertyHidden: ''
+                  },
+                  Target: undefined,
+                  Href: undefined,
+                  Tooltip: 'Deletar'
                 }
               }
             ]  
@@ -87,7 +108,7 @@ export class PetGridComponent {
           Filter: true,
           OrderBy: true,
           ServerField: 'IdPet',
-          StyleColuna: undefined,
+          StyleColuna: 'min-width: 10vh; max-width: 20vh;',
           EnumOptions: undefined,
           StyleCell: undefined,
           ClassCell: undefined,   
@@ -104,44 +125,44 @@ export class PetGridComponent {
           OrderBy: true,
           Filter: true,
           ServerField: 'Nome',
-          StyleColuna: 'min-width: 40vh; max-width: 50vh;',
+          StyleColuna: 'min-width: 40vh; max-width: 50vh; font-size: 10pt;',
           EnumOptions: undefined,
-          StyleCell: 'margin-left:5pt; padding: 2pt; border-radius: 2pt; background: rgb(40,167,69);',
+          StyleCell: 'margin-left:10pt; padding: 5pt; border-radius: 2pt; background: rgb(40,167,69);',
           ClassCell: 'd-inline text-white',
           CellGraphics: undefined,
           CellImage: {
-            PropertyLink: 'imagemUsuario',
+            PropertyLink: 'fotoBase64',
             ClassImage: 'rounded float-start d-inline',
-            StyleImage: 'max-width: 30pt;',
-            Tooltip:  'Foto do usuário',
+            StyleImage: 'max-width: 80pt; border-radius: 20pt; border: 4pt double rgb(180, 180, 180)',
+            Tooltip:  'Foto do pet',
             OnlyImage: false
           },    
         },
         {
-          Field: 'idade',
-          DisplayName: 'Idade',
+          Field: 'local',
+          DisplayName: 'Local',
           CellTemplate: undefined,
           ActionButton: undefined,
-          Type: TypeFilter.Number,
+          Type: TypeFilter.String,
           EnumName: undefined,
-          ServerField: 'idade',
-          Filter: true,
-          OrderBy: true,
-          StyleColuna: 'width: 100pt;',
+          ServerField: 'local',
+          Filter: false,
+          OrderBy: false,
+          StyleColuna: 'width: 30vh;',
           EnumOptions: undefined,
-          StyleCell: 'width: 100pt;',
+          StyleCell: 'width: 30vh;',
           ClassCell: undefined,
           CellGraphics: undefined,
           CellImage: undefined,    
         },
         {
           Field: 'tipoCadastro',
-          DisplayName: 'Perfil do pet',
+          DisplayName: 'Tipo do cadastro',
           CellTemplate: undefined,
           ActionButton: undefined, 
           Type: TypeFilter.Enum,
           EnumName: undefined,
-          ServerField: 'perfil',
+          ServerField: 'tipoCadastro',
           Filter: true,
           OrderBy: true,
           StyleColuna: 'width:10vh',
@@ -156,6 +177,23 @@ export class PetGridComponent {
   }
 
   Editar(data: any){
-    this.router.navigate(['main/usuario/' + data.idUsuario.toString() + '/editar']);
+    this.router.navigate(['editar-pet/' + data.idPet.toString()]);
+  }
+
+  Deletar(data: any){
+    this.loading = true;
+
+    this.response.Post("Pet","DeleteById?id=" + data.idPet,undefined).subscribe(
+      (response: RetornoPadrao) =>{        
+        if(response.sucesso){
+          this.toastr.success(response.mensagem, 'Mensagem:');
+          this.gridService.RecarregarGrid();
+        }
+        else{
+          this.toastr.error(response.mensagem, 'Mensagem:');
+        }
+        this.loading = false;
+      }
+    );
   }
 }

@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500;600&display=swap');
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
 
 .mat-tab-label-content{
     font-size: medium;
@@ -19,8 +21,7 @@ input::-webkit-inner-spin-button {
 
 .p-3{
     color: #ffffff00;
-    background-color: #ffffff00;
-    
+    background-color: #ffffff00;    
 }
 
 .body{
@@ -28,6 +29,8 @@ input::-webkit-inner-spin-button {
     background-image: image("/assets/images/background.png");
 }
 
-
-
+.btn-perfil{
+    margin-left: -35pt;
+    margin-top: 65pt;
+}
    

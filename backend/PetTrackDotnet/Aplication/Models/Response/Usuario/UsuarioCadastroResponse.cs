@@ -1,6 +1,7 @@
-﻿using Aplication.Utils.Obj;
+﻿using Aplication.Models.Response.Login;
+using Aplication.Utils.Obj;
 
-namespace Aplication.Models.Response;
+namespace Aplication.Models.Response.Usuario;
 
 public class UsuarioCadastroResponse 
 {

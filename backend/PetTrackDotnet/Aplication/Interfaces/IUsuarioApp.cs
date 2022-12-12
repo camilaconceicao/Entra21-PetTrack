@@ -1,5 +1,6 @@
 ﻿using Aplication.Models.Request.Usuario;
 using Aplication.Models.Response;
+using Aplication.Models.Response.Usuario;
 using Infraestrutura.Entity;
 using ValidationResult = Aplication.Utils.Obj.ValidationResult;
 

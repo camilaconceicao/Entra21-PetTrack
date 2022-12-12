@@ -1,71 +1,34 @@
 <main>
-
     <section class="py-5 text-center container">
       <div class="row py-lg-5">
-        <div class="col-lg-6 col-md-8 mx-auto">
+        <spinner-component *ngIf="loading == true" class="d-flex justify-content-center"></spinner-component>
+        <div class="col-lg-6 col-md-8 mx-auto" [hidden]="loading">
           <h1 class="fw-light-bold">Busca Pet</h1>
           <p class="lead text-muted">Com essa função, vocês conseguem postar foto do seu animal que fugiu, última 
             localização com um raio aproximado de onde ele possa estar, nossa comunidade fará o resto para tentar te ajudar!</p>
         </div>
       </div>
     </section>
-  
     <div class="album py-5 bg-white">
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          <div class="col">
+          <div class="col" *ngFor="let item of lPetz">
             <div class="card shadow-sm">
-              <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="assets\images\cat_tito.jpg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Ong2</title>
+              <img class="bd-placeholder-img card-img-top" width="100%" height="225"  [src]="item.fotoBase64" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Ong2</title>
               <div class="card-body">
-                <h5 class="card-title">Tito</h5>
-                <p class="card-text">"Tito, 3 anos. Sumiu na região central após pular do sétimo andar de um edifício. Estava com uma coleira azul."</p>
+                <h5 class="card-title">{{item.nome}}</h5>
+                <p class="card-text"> {{item.descricao}}</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-secondary">Dados</button>
                     <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/mapa">Localização</button>
                   </div>
-                  <small class="text-muted">3h atrás</small>
+                  <small class="text-muted" matTooltip="Cadastro desde">{{item.dataCadastro}}</small>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="col">
-            <div class="card shadow-sm">
-              <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="assets\images\dog_dior.jpg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Ong2</title>
-              <div class="card-body">
-                <h5 class="card-title">Dior</h5>
-                <p class="card-text">"Dior, atende por Tinho, saiu correndo em direção ao colégio Marista, não conseguimos encontrar."<br> <br>  </p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Dados</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/mapa">Localização</button>
-                  </div>
-                  <small class="text-muted">1d 2h atrás</small>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card shadow-sm">
-              <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="assets\images\dog_duque.jpg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Ong2</title>
-              <div class="card-body">
-                <h5 class="card-title">Duque</h5>
-                <p class="card-text">"Fugiu de casa, próximo ao SESC, gosta de poças, estava com uma coleira marrom" <br> <br></p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Dados</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/mapa">Localização</button>
-                  </div>
-                  <small class="text-muted">21/10/2022</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          
         </div>
       </div>
     </div>
-  
   </main>

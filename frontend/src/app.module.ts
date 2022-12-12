@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {MatTabsModule} from '@angular/material/tabs';
 import { AppRoutingModule } from './app.routing.module';
 import { HomeComponent } from './app/home/home.component';
@@ -40,6 +40,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatTableModule} from '@angular/material/table';
 import { PetCrudComponent } from './app/pet-crud/crud/pet-crud.component';
+import { AuthTokenInterceptor } from './interceptor/header.interceptor';
 
 const maskConfigFunction: () => Partial<IConfig> = () => {
   return {
@@ -102,7 +103,10 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
   exports: [
     PopUpComponent,
   ],
-  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pt-br' }],
+  providers: [
+  { provide: MAT_DATE_LOCALE, useValue: 'pt-br' },
+  { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true },
+],
   bootstrap: [AppComponent],
   
 })

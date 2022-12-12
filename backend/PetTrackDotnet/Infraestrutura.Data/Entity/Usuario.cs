@@ -14,4 +14,10 @@ public class Usuario
     public string? Bairro { get; set; } 
     public int? Numero { get; set; }
     public DateTime? DataNascimento { get; set; }
+    
+    #region Relacionamento
+
+    public virtual IEnumerable<Pet> LPetz { get; set; } = null!;
+
+    #endregion
 }

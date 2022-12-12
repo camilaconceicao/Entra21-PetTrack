@@ -3,12 +3,13 @@ import { Injectable } from "@angular/core";
 import { Observable, tap, throwError } from "rxjs";
 import { ToastrService } from 'ngx-toastr';
 import { Router } from "@angular/router";
+import { BaseService } from "src/service/base-service.component";
 
 @Injectable()
 export class AuthTokenInterceptor implements HttpInterceptor {
   token!: string | null;
 
-  constructor(private toastr: ToastrService,private router: Router){}
+  constructor(private toastr: ToastrService,private router: Router,private response:BaseService){}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     this.token = window.localStorage.getItem('Token');
@@ -23,8 +24,9 @@ export class AuthTokenInterceptor implements HttpInterceptor {
           if (err.status == 401 || err.status == 403) 
           {
             this.toastr.warning('<small>Sua sessão expirou!</small>');
-            window.localStorage.clear();
-            this.router.navigateByUrl('/');
+              window.localStorage.clear();
+              this.response.UsuarioLogado(false);
+              this.router.navigateByUrl('/');
           }
           else
             throwError(() => new Error(err.message))          

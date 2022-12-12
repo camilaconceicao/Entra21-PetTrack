@@ -29,6 +29,7 @@ export class DataGridComponent implements OnInit{
 
   //GridEvents
   @Output() Editar: EventEmitter<any> = new EventEmitter;
+  @Output() Deletar: EventEmitter<any> = new EventEmitter;
 
   //variaveis grid
   displayedColumnsHeader: string[] = [];
@@ -66,6 +67,8 @@ export class DataGridComponent implements OnInit{
 
       //Eventos da grid 
       this.gridService.recarregar.subscribe(() => {
+        this.data = undefined;
+        this.loading = true;
         this.ConsultarGrid();
       });
     }
@@ -219,5 +222,9 @@ export class DataGridComponent implements OnInit{
     if(action.TypeActionButton == TypeActionButton.Selecionar){
       this.gridService.SelecionarModal(data);
     }  
+
+    if(action.TypeActionButton == TypeActionButton.Deletar){
+      this.Deletar.emit(data);
+    } 
   }
 }
