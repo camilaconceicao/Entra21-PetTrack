@@ -12,6 +12,8 @@ import { TipoComponent } from './app/tipo/tipo.component';
 import { MapaComponent } from './app/mapa/mapa.component';
 import { PetGridComponent } from './app/pet-crud/grid/pet-grid.component';
 import { PetCrudComponent } from './app/pet-crud/crud/pet-crud.component';
+import { Pagina500Component } from './app/pagina-500/pagina-500.component';
+import { Pagina401Component } from './app/pagina-401/pagina-401.component';
 
 //Definir as rotas:
 const routes: Routes = [
@@ -24,10 +26,12 @@ const routes: Routes = [
   { path: 'comunidade', component: ComunidadeComponent },
   { path: 'pop-up', component: PopUpComponent },
   { path: 'tipo', component: TipoComponent},
-  { path: 'mapa', component: MapaComponent},
+  { path: 'mapa/:lat/:long', component: MapaComponent},
   { path: 'cadastros-pet/novo-pet', component: PetCrudComponent},
   { path: 'editar-pet/:id', component: PetCrudComponent},
-  { path: 'cadastros-pet', component: PetGridComponent}
+  { path: 'cadastros-pet', component: PetGridComponent},
+  { path: 'pag-500', component: Pagina500Component},
+  { path: 'pag-401', component: Pagina401Component}
 ];
 
 @NgModule({

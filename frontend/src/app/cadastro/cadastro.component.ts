@@ -20,6 +20,7 @@ import { UsuarioResponse } from 'src/objects/Usuario/UsuarioResponse';
     },
   ],
 })
+
 export class CadastroComponent{
   //Variaveis operacionais
   loading: boolean = false;
