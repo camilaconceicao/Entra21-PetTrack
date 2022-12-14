@@ -41,6 +41,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatTableModule} from '@angular/material/table';
 import { PetCrudComponent } from './app/pet-crud/crud/pet-crud.component';
 import { AuthTokenInterceptor } from './interceptor/header.interceptor';
+import { Pagina500Component } from './app/pagina-500/pagina-500.component';
+import { Pagina401Component } from './app/pagina-401/pagina-401.component';
 
 const maskConfigFunction: () => Partial<IConfig> = () => {
   return {
@@ -68,8 +70,8 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     SpinnerComponent,
     PetGridComponent,
     PetCrudComponent,
-    PerfilComponent
-
+    Pagina500Component,
+    Pagina401Component
   ],
   imports: [
     BrowserModule,
@@ -110,6 +112,6 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
   { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true },
 ],
   bootstrap: [AppComponent],
-  
+
 })
 export class AppModule { }

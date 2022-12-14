@@ -21,7 +21,7 @@ input::-webkit-inner-spin-button {
 
 .p-3{
     color: #ffffff00;
-    background-color: #ffffff00;    
+    background-color: #ffffff00;
 }
 
 .body{
@@ -33,4 +33,7 @@ input::-webkit-inner-spin-button {
     margin-left: -35pt;
     margin-top: 65pt;
 }
-   
+
+body{
+    overflow-x: hidden;
+}

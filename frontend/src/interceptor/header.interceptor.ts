@@ -19,17 +19,20 @@ export class AuthTokenInterceptor implements HttpInterceptor {
     });
 
     return next.handle(req).pipe(tap({
-      error: err => { 
+      error: err => {
         if (err instanceof HttpErrorResponse) {
-          if (err.status == 401 || err.status == 403) 
+          debugger
+          if (err.status == 403)
           {
             this.toastr.warning('<small>Sua sessão expirou!</small>');
               window.localStorage.clear();
               this.response.UsuarioLogado(false);
-              this.router.navigateByUrl('/');
-          }
-          else
-            throwError(() => new Error(err.message))          
+              this.router.navigateByUrl('/pag-401');
+            }else{
+              throwError(() => new Error(err.message))
+              this.router.navigateByUrl('/pag-500');
+            }
+
         }
       },
     }));
