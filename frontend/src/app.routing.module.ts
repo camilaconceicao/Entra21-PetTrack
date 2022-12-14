@@ -28,6 +28,7 @@ const routes: Routes = [
   { path: 'tipo', component: TipoComponent},
   { path: 'mapa/:lat/:long', component: MapaComponent},
   { path: 'cadastros-pet/novo-pet', component: PetCrudComponent},
+  { path: 'cadastros-pet', component: PetGridComponent},
   { path: 'editar-pet/:id', component: PetCrudComponent},
   { path: 'cadastros-pet', component: PetGridComponent},
   { path: 'pag-500', component: Pagina500Component},

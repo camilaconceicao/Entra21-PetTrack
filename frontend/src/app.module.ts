@@ -67,7 +67,9 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     NavbarComponent,
     SpinnerComponent,
     PetGridComponent,
-    PetCrudComponent
+    PetCrudComponent,
+    PerfilComponent
+
   ],
   imports: [
     BrowserModule,
