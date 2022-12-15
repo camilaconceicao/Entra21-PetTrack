@@ -1,0 +1,65 @@
+<!-- Tela Perfil -->
+
+
+<div class="container col-xxl-8 px-4 py-5">
+  <div class="bd-example-snippet bd-code-snippet">
+    <div class="bd-example">
+      <nav>
+        <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+          <button class="nav-link active" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button"
+            role="tab" aria-controls="nav-profile" aria-selected="true">Perfil</button>
+          <button class="nav-link" id="nav-address-tab" data-bs-toggle="tab" data-bs-target="#nav-address" type="button"
+            role="tab" aria-controls="nav-address" aria-selected="false" tabindex="-1">Endereço</button>
+          <button class="nav-link" id="nav-pets-tab" data-bs-toggle="tab" data-bs-target="#nav-pets" type="button"
+            role="tab" aria-controls="nav-pets" aria-selected="false" tabindex="-1">Pets</button>
+        </div>
+      </nav>
+      
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade active show" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+          <div class="mb-3">
+            <label for="Nome" class="form-label">Nome</label>
+            <input formControlName="nome" type="string" class="form-control" id="nome">
+          </div>
+          <div class="mb-3">
+            <label for="Telefone" class="form-label">Telefone</label>
+            <input formControlName="telefone" type="number" class="form-control" id="telefone">
+          </div>
+          <div class="mb-3">
+            <label for="CPF" class="form-label">CPF</label>
+            <input formControlName="cpf" type="string" class="form-control" id="cpf">
+          </div>
+          <div class="mb-3">
+            <label for="CPF" class="form-label">Data de Nascimento</label>
+            <input formControlName="dataNascimento" type="number" class="form-control" id="cpf">
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="nav-address" role="tabpanel" aria-labelledby="nav-address-tab">
+          <div class="mb-3">
+            <label for="CEP" class="form-label">CEP</label>
+            <input formControlName="cep" type="number" class="form-control" id="cep">
+          </div>
+          <div class="mb-3">
+            <label for="Cidade" class="form-label">Cidade</label>
+            <input formControlName="cidade" type="string" class="form-control" id="cidade">
+          </div>
+          <div class="mb-3">
+            <label for="Bairro" class="form-label">Bairro</label>
+            <input formControlName="bairro" type="string" class="form-control" id="bairro">
+          </div>
+          <div class="mb-3">
+            <label for="Rua" class="form-label">Rua</label>
+            <input formControlName="rua" type="string" class="form-control" id="rua">
+          </div>
+          
+        </div>
+        <div class="tab-pane fade" id="nav-pets" role="tabpanel" aria-labelledby="nav-pets-tab">
+
+          
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
