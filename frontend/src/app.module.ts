@@ -43,6 +43,7 @@ import { PetCrudComponent } from './app/pet-crud/crud/pet-crud.component';
 import { AuthTokenInterceptor } from './interceptor/header.interceptor';
 import { Pagina500Component } from './app/pagina-500/pagina-500.component';
 import { Pagina401Component } from './app/pagina-401/pagina-401.component';
+import { PerfilComponent } from './app/perfil/perfil.component';
 
 const maskConfigFunction: () => Partial<IConfig> = () => {
   return {
@@ -71,7 +72,8 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     PetGridComponent,
     PetCrudComponent,
     Pagina500Component,
-    Pagina401Component
+    Pagina401Component,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

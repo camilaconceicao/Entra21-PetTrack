@@ -14,6 +14,7 @@ import { PetGridComponent } from './app/pet-crud/grid/pet-grid.component';
 import { PetCrudComponent } from './app/pet-crud/crud/pet-crud.component';
 import { Pagina500Component } from './app/pagina-500/pagina-500.component';
 import { Pagina401Component } from './app/pagina-401/pagina-401.component';
+import { PerfilComponent } from './app/perfil/perfil.component';
 
 //Definir as rotas:
 const routes: Routes = [
@@ -32,7 +33,8 @@ const routes: Routes = [
   { path: 'editar-pet/:id', component: PetCrudComponent},
   { path: 'cadastros-pet', component: PetGridComponent},
   { path: 'pag-500', component: Pagina500Component},
-  { path: 'pag-401', component: Pagina401Component}
+  { path: 'pag-401', component: Pagina401Component},
+  { path: 'perfil', component: PerfilComponent}
 ];
 
 @NgModule({
