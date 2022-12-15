@@ -1,10 +1,9 @@
 ﻿using Aplication.Models.Request.Base;
 using Aplication.Models.Request.Pet;
-using Aplication.Models.Response;
 using Aplication.Models.Response.Base;
 using Aplication.Models.Response.Pet;
 using Aplication.Utils.Obj;
-using Infraestrutura.Entity;
+using Infra.Data.Entity;
 
 namespace Aplication.Interfaces;
 

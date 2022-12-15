@@ -19,6 +19,7 @@ public class OngController : DefaultController
     }
 
     [HttpPost]
+    [Authorize]
     [Route("Cadastrar")]
     public JsonResult Cadastrar(OngRequest request)
     {

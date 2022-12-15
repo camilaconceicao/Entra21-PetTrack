@@ -1,8 +1,7 @@
 using Aplication.Interfaces;
 using Aplication.Models.Request.Usuario;
-using Aplication.Models.Response;
 using Aplication.Models.Response.Usuario;
-using Infraestrutura.Entity;
+using Infra.Data.Entity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Web.Controllers.Base;

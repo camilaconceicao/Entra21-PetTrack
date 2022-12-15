@@ -10,7 +10,6 @@
         "dependencies": {
           "Aplication": "1.0.0",
           "Domain": "1.0.0",
-          "Infraestrutura.Data": "1.0.0",
           "Infraestrutura.Reports": "1.0.0",
           "LinqBuilder.OrderBy": "0.16.1",
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
@@ -647,6 +646,7 @@
         "dependencies": {
           "AutoMapper": "11.0.1",
           "Domain": "1.0.0",
+          "Infra.Data": "1.0.0",
           "LinqBuilder.OrderBy": "0.16.1",
           "Microsoft.EntityFrameworkCore.DynamicLinq": "6.2.20",
           "System.Linq.Dynamic.Core": "1.2.20"
@@ -657,7 +657,7 @@
       },
       "Domain/1.0.0": {
         "dependencies": {
-          "Infraestrutura.Data": "1.0.0",
+          "Infra.Data": "1.0.0",
           "Infraestrutura.Reports": "1.0.0",
           "LinqBuilder.OrderBy": "0.16.1",
           "System.Linq.Dynamic.Core": "1.2.20"
@@ -666,7 +666,7 @@
           "Domain.dll": {}
         }
       },
-      "Infraestrutura.Data/1.0.0": {
+      "Infra.Data/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "6.0.8",
           "Microsoft.EntityFrameworkCore.Abstractions": "6.0.8",
@@ -676,7 +676,7 @@
           "System.Linq.Dynamic.Core": "1.2.20"
         },
         "runtime": {
-          "Infraestrutura.Data.dll": {}
+          "Infra.Data.dll": {}
         }
       },
       "Infraestrutura.Reports/1.0.0": {
@@ -1175,7 +1175,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Infraestrutura.Data/1.0.0": {
+    "Infra.Data/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

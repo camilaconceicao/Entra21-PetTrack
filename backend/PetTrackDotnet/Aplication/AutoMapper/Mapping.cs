@@ -1,13 +1,14 @@
-﻿using Aplication.Models.Request.Pet;
+﻿using Aplication.Models.Request.Care;
+using Aplication.Models.Request.Ong;
+using Aplication.Models.Request.Pet;
 using Aplication.Models.Request.Usuario;
-using Aplication.Models.Response;
 using Aplication.Models.Response.Endereco;
 using Aplication.Models.Response.Login;
 using Aplication.Models.Response.Pet;
 using Aplication.Utils.HashCripytograph;
 using AutoMapper;
 using Domain.DTO.Correios;
-using Infraestrutura.Entity;
+using Infra.Data.Entity;
 
 namespace Aplication.AutoMapper;
 
@@ -51,6 +52,18 @@ public class Mapping : Profile
             .ForMember(dst => dst.Tamanho,
                 map => map.MapFrom(src => src.Tamanho.ToString()));
 
+        #endregion
+
+        #region Ong
+        CreateMap<OngRequest, Ong>()
+            .ForMember(dst => dst.DataCadastro,
+                map => map.MapFrom(src => DateTime.Now));
+        #endregion
+
+        #region Care
+        CreateMap<CareRequest, Care>()
+            .ForMember(dst => dst.DataCadastro,
+                map => map.MapFrom(src => DateTime.Now));
         #endregion
     }
 }

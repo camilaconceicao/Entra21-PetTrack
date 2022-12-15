@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dCBRlSaARuuMpuL3gjX1YjL9v49oOpmYRfJZbHwE7hU=",
+  "Hash": "Gqiqw5DDfKpays0pDal6wdUprQTysydZFBpchDqt1l0=",
   "Source": "Aplication",
   "BasePath": "_content/Aplication",
   "Mode": "Default",
@@ -18,9 +18,9 @@
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier"
     },
     {
-      "Identity": "C:\\Source\\PetTrack\\Entra21-PetTrack\\backend\\PetTrackDotnet\\Infraestrutura.Data\\Infraestrutura.Data.csproj",
+      "Identity": "C:\\Source\\PetTrack\\Entra21-PetTrack\\backend\\PetTrackDotnet\\Infra.Data\\Infra.Data.csproj",
       "Version": 2,
-      "Source": "Infraestrutura.Data",
+      "Source": "Infra.Data",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
       "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
       "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier",

@@ -2,7 +2,6 @@
 using Aplication.Interfaces;
 using Aplication.Models.Request.Base;
 using Aplication.Models.Request.Pet;
-using Aplication.Models.Response;
 using Aplication.Models.Response.Base;
 using Aplication.Models.Response.Pet;
 using Aplication.Utils.Filter;
@@ -11,7 +10,7 @@ using Aplication.Validators.Pet;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Domain.Interfaces;
-using Infraestrutura.Entity;
+using Infra.Data.Entity;
 using Infraestrutura.Enum;
 
 namespace Aplication.Controllers;

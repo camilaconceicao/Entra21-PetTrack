@@ -1,4 +1,4 @@
-﻿using Infraestrutura.Entity;
+﻿using Infra.Data.Entity;
 
 namespace Domain.Interfaces;
 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "jwjRYxLjB/8j1FClIZAYHtfIpDgiy07vY1D3pXLANotwv6yKG+YYpkAkbhUgfrmQ0dty091BDw+cx7eW/9nXAQ==",
+  "dgSpecHash": "obL303RpIyfx/k6ZH/frDyUW5eKXNYGaqmARR6DBnti6ID+isqxHKOo5ynkW+b6JwazjQCAIjJQMSdJOWk+yeA==",
   "success": true,
   "projectFilePath": "C:\\Source\\PetTrack\\Entra21-PetTrack\\backend\\PetTrackDotnet\\Infraestrutura.CrossCutting\\Infraestrutura.CrossCutting.csproj",
   "expectedPackageFiles": [

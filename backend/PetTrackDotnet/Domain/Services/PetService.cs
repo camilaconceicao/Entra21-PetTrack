@@ -1,6 +1,6 @@
 ﻿using Domain.Interfaces;
-using Infraestrutura.Entity;
-using Infraestrutura.Repository.Interface.Pet;
+using Infra.Data.Entity;
+using Infra.Data.Repository.Interface.Pet;
 
 namespace Domain.Services;
 

@@ -1,6 +1,6 @@
 ﻿using Domain.Interfaces;
-using Infraestrutura.Entity;
-using Infraestrutura.Repository.Interface.Ong;
+using Infra.Data.Entity;
+using Infra.Data.Repository.Interface.Ong;
 
 namespace Domain.Services;
 

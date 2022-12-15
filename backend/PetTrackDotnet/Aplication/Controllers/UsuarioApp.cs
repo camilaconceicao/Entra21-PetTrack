@@ -1,12 +1,11 @@
 ﻿using Aplication.Interfaces;
 using Aplication.Models.Request.Login;
 using Aplication.Models.Request.Usuario;
-using Aplication.Models.Response;
 using Aplication.Models.Response.Usuario;
 using Aplication.Validators.Usuario;
 using AutoMapper;
 using Domain.Interfaces;
-using Infraestrutura.Entity;
+using Infra.Data.Entity;
 
 namespace Aplication.Controllers;
 public class UsuarioApp : IUsuarioApp

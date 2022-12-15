@@ -2,5 +2,5 @@
 
 public class UsuarioResponse
 { 
-    public List<Infraestrutura.Entity.Usuario> itens { get; set; }
+    public List<Infra.Data.Entity.Usuario> itens { get; set; }
 }

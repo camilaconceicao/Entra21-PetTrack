@@ -1,12 +1,11 @@
 ﻿using Aplication.Authentication;
 using Aplication.Interfaces;
 using Aplication.Models.Request.Login;
-using Aplication.Models.Response;
 using Aplication.Models.Response.Login;
 using Aplication.Utils.HashCripytograph;
 using AutoMapper;
 using Domain.Interfaces;
-using Infraestrutura.Entity;
+using Infra.Data.Entity;
 
 namespace Aplication.Controllers;
 

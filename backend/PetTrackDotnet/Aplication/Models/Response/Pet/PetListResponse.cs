@@ -2,5 +2,5 @@
 
 public class PetListResponse
 { 
-    public List<Infraestrutura.Entity.Pet> itens { get; set; }
+    public List<Infra.Data.Entity.Pet> itens { get; set; }
 }

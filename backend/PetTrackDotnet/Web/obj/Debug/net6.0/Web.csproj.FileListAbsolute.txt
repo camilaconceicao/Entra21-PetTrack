@@ -180,9 +180,6 @@ C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\
 C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\Aplication.runtimeconfig.json
 C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\Domain.deps.json
 C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\Domain.runtimeconfig.json
-C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\Infraestrutura.Data.deps.json
-C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\Infraestrutura.Data.runtimeconfig.json
-C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\Infraestrutura.Data.exe
 C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\Infraestrutura.Reports.deps.json
 C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\Infraestrutura.Reports.runtimeconfig.json
 C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\Infraestrutura.Reports.exe
@@ -245,12 +242,10 @@ C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\
 C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\Aplication.dll
 C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\Domain.dll
 C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\Infraestrutura.CrossCutting.dll
-C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\Infraestrutura.Data.dll
 C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\Infraestrutura.Reports.dll
 C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\Aplication.pdb
 C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\Infraestrutura.CrossCutting.pdb
 C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\Domain.pdb
-C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\Infraestrutura.Data.pdb
 C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\Infraestrutura.Reports.pdb
 C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\obj\Debug\net6.0\Web.csproj.AssemblyReference.cache
 C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\obj\Debug\net6.0\Web.GeneratedMSBuildEditorConfig.editorconfig
@@ -268,3 +263,8 @@ C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\obj\Debug\net6.0\
 C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\obj\Debug\net6.0\Web.pdb
 C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\obj\Debug\net6.0\Web.genruntimeconfig.cache
 C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\obj\Debug\net6.0\ref\Web.dll
+C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\Infra.Data.deps.json
+C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\Infra.Data.runtimeconfig.json
+C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\Infra.Data.exe
+C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\Infra.Data.dll
+C:\Source\PetTrack\Entra21-PetTrack\backend\PetTrackDotnet\Web\bin\Debug\net6.0\Infra.Data.pdb

@@ -1,15 +1,15 @@
 {
   "Version": 1,
-  "Hash": "8Dj/gqIUB3/X/WFhqdkeQv9smNa1onyNFZhvW5trygM=",
+  "Hash": "RILRcclSoBXbk2cSyjdJA0ftdPBBpR973Z98yXve1nI=",
   "Source": "Domain",
   "BasePath": "_content/Domain",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "C:\\Source\\PetTrack\\Entra21-PetTrack\\backend\\PetTrackDotnet\\Infraestrutura.Data\\Infraestrutura.Data.csproj",
+      "Identity": "C:\\Source\\PetTrack\\Entra21-PetTrack\\backend\\PetTrackDotnet\\Infra.Data\\Infra.Data.csproj",
       "Version": 2,
-      "Source": "Infraestrutura.Data",
+      "Source": "Infra.Data",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
       "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
       "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier",

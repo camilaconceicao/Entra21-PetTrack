@@ -1,5 +1,5 @@
 ﻿using Aplication.Models.Request.Ong;
-using Infraestrutura.Entity;
+using Infra.Data.Entity;
 using ValidationResult = Aplication.Utils.Obj.ValidationResult;
 
 namespace Aplication.Interfaces;

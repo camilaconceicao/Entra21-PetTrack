@@ -2,5 +2,5 @@
 
 public class OngResponse 
 { 
-    public List<Infraestrutura.Entity.Ong> itens { get; set; }
+    public List<Infra.Data.Entity.Ong> itens { get; set; }
 }
